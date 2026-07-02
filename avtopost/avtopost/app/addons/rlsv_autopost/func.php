@@ -1612,6 +1612,10 @@ function fn_rlsv_autopost_sanitize_html($html)
     $nodes = iterator_to_array($xpath->query('//*'));
 
     foreach ($nodes as $node) {
+        if ($node->nodeType === XML_ELEMENT_NODE && $node->getAttribute('id') === 'rlsv-root') {
+            continue;
+        }
+
         $tag = strtolower($node->nodeName);
 
         if (!isset($allowed[$tag])) {
