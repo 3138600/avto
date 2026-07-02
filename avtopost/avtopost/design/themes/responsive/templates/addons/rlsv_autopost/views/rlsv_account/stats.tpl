@@ -1,183 +1,319 @@
 {*
     Витрина: аналитика публикаций пользователя.
     dispatch=rlsv_account.stats
-    Вкладки: Обзор + по каждому каналу + по товарам. На «Обзоре» и на вкладках
-    площадок — карточки KPI и пончиковые графики (в цветах темы Brightness).
-    Данные ограничены текущим пользователем в контроллере; вывод экранируется.
 *}
 {capture name="mainbox"}
 <div id="rlsv-ap-stats" class="rlsv-ap">
 
-    <style>
-        /* Палитра Brightness: base #edf2f5, font #465363, primary(red) #f2464e,
-           secondary(blue) #46aaf2, in_stock #27ae60, out_of_stock #a80006, discount #fc9432 */
-        .rlsv-ap .rlsv-tabs { list-style:none; margin:0 0 16px; padding:0; border-bottom:1px solid #d3dde3; display:flex; flex-wrap:wrap; }
-        .rlsv-ap .rlsv-tabs li { margin:0 4px 0 0; }
-        .rlsv-ap .rlsv-tabs a { display:block; padding:10px 18px; text-decoration:none; color:#465363; background:#edf2f5; border:1px solid transparent; border-bottom:none; border-radius:5px 5px 0 0; }
-        .rlsv-ap .rlsv-tabs a:hover { background:#fff; color:#3182c4; }
-        .rlsv-ap .rlsv-tabs a.active { color:#46aaf2; background:#fff; border-color:#d3dde3; margin-bottom:-1px; box-shadow:inset 0 3px 0 0 #46aaf2; font-weight:600; }
-        .rlsv-ap .rlsv-cards { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:14px; }
-        .rlsv-ap .rlsv-card { flex:1 1 110px; background:#fff; border:1px solid #e1e9ee; border-radius:12px; padding:14px; text-align:center; box-shadow:0 1px 3px 0 rgba(70,83,99,.08); }
-        .rlsv-ap .rlsv-card .num { font-size:26px; font-weight:700; line-height:1; color:#2b3648; letter-spacing:-.5px; }
-        .rlsv-ap .rlsv-card .lbl { color:#8a97a3; font-size:11px; margin-top:5px; text-transform:uppercase; letter-spacing:.05em; }
-        .rlsv-ap .rlsv-card.ok .num { color:#27ae60; }
-        .rlsv-ap .rlsv-card.err .num { color:#a80006; }
-        .rlsv-ap .rlsv-card.rate .num { color:#46aaf2; }
-        .rlsv-ap .rlsv-charts { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:16px; }
-        .rlsv-ap .rlsv-chart { flex:1 1 260px; background:#fff; border:1px solid #e1e9ee; border-radius:14px; padding:16px; box-shadow:0 1px 3px 0 rgba(70,83,99,.08); }
-        .rlsv-ap .rlsv-chart-t { font-size:11px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:#5b6b7d; margin-bottom:12px; }
-        .rlsv-ap .rlsv-donut-row { display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
-        .rlsv-ap .rlsv-donut { flex:none; }
-        .rlsv-ap .rlsv-donut svg { display:block; }
-        .rlsv-ap .rlsv-legend { flex:1 1 150px; }
-        .rlsv-ap .rlsv-legend-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:13px; }
-        .rlsv-ap .rlsv-legend-row .dot { width:10px; height:10px; border-radius:50%; flex:none; }
-        .rlsv-ap .rlsv-legend-row .l { color:#5b6b7d; flex:1; }
-        .rlsv-ap .rlsv-legend-row .v { font-weight:700; color:#2b3648; }
-        .rlsv-ap .rlsv-muted { color:#8a97a3; font-size:12px; }
-        .rlsv-ap .rlsv-badge { display:inline-block; padding:1px 8px; border-radius:10px; font-size:11px; }
-        .rlsv-ap .rlsv-badge.done { background:#e4f5ea; color:#27ae60; }
-        .rlsv-ap .rlsv-badge.error { background:#f7e1e1; color:#a80006; }
-        .rlsv-ap .rlsv-badge.pending,.rlsv-ap .rlsv-badge.processing { background:#fef0dd; color:#b5670a; }
-    </style>
+<!-- Tailwind CSS for rapid styling -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Google Fonts: Inter for clean numbers and UI -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- FontAwesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<script>
+    tailwind.config = {
+        corePlugins: {
+            preflight: false,
+        },
+        theme: {
+            extend: {
+                fontFamily: {
+                    sans: ['Inter', 'sans-serif'],
+                },
+                colors: {
+                    slate: {
+                        850: '#151f32',
+                        900: '#0f172a',
+                        950: '#020617',
+                    },
+                    brand: {
+                        DEFAULT: '#46aaf2',
+                        light: '#72c2ff',
+                        dark: '#3182c4'
+                    },
+                    success: '#27ae60',
+                    danger: '#a80006',
+                    warning: '#fc9432'
+                }
+            }
+        }
+    }
+</script>
+
+<style>
+    /* Custom scrollbar hiding for clean UI */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .bento-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .bento-card:active { transform: scale(0.98); }
+</style>
+
+<div class="tw-scope w-full bg-slate-50 min-h-screen relative overflow-hidden flex flex-col font-sans">
 
     {* ----- Навигация по вкладкам ----- *}
-    <p class="ty-mb-s"><a class="ty-btn ty-btn__secondary" href="{"rlsv_account.instagram"|fn_url}">{__("rlsv_autopost.ig_analytics")}</a></p>
-    <ul class="rlsv-tabs">
-        <li><a href="#" data-rlsv-tab="overview">{__("rlsv_autopost.tab_overview")}</a></li>
-        {foreach from=$rlsv_platforms item="pf"}
-            <li><a href="#" data-rlsv-tab="ch_{$pf|escape}">{$pf|escape} ({$rlsv_by_channel.$pf.total|default:0})</a></li>
-        {/foreach}
-        <li><a href="#" data-rlsv-tab="by_product">{__("rlsv_autopost.tab_by_product")}</a></li>
-    </ul>
-
-    {* ===== Обзор ===== *}
-    <div data-rlsv-pane="overview">
-        <div class="rlsv-cards">
-            <div class="rlsv-card"><div class="num">{$rlsv_ov_dash.total|number_format:0:".":" "}</div><div class="lbl">{__("rlsv_autopost.stat_total")}</div></div>
-            <div class="rlsv-card ok"><div class="num">{$rlsv_ov_dash.done|number_format:0:".":" "}</div><div class="lbl">{__("rlsv_autopost.stat_done")}</div></div>
-            <div class="rlsv-card err"><div class="num">{$rlsv_ov_dash.error|number_format:0:".":" "}</div><div class="lbl">{__("rlsv_autopost.stat_error")}</div></div>
-            <div class="rlsv-card"><div class="num">{$rlsv_ov_dash.pending|number_format:0:".":" "}</div><div class="lbl">{__("rlsv_autopost.stat_pending")}</div></div>
-            <div class="rlsv-card rate"><div class="num">{$rlsv_ov_dash.success}%</div><div class="lbl">{__("rlsv_autopost.stat_success")}</div></div>
+    <div class="px-5 py-4 border-b border-slate-200 bg-white sticky top-0 z-40 shadow-sm">
+        <div class="flex items-center justify-between mb-4">
+            <h1 class="text-xl font-bold text-slate-900 m-0">{__("rlsv_autopost.my_stats")}</h1>
+            <a href="{"rlsv_account.instagram"|fn_url}" class="bg-brand/10 hover:bg-brand/20 text-brand font-medium py-1.5 px-4 rounded-full transition-colors text-sm shadow-sm" style="text-decoration: none;">
+                <i class="fa-brands fa-instagram mr-1"></i> {__("rlsv_autopost.ig_analytics")}
+            </a>
         </div>
 
-        <div class="rlsv-charts">
-            <div class="rlsv-chart">
-                <div class="rlsv-chart-t">{__("rlsv_autopost.chart_status")}</div>
-                {include file="addons/rlsv_autopost/views/rlsv_account/_chart.tpl" chart=$rlsv_ov_dash.status}
-            </div>
-            <div class="rlsv-chart">
-                <div class="rlsv-chart-t">{__("rlsv_autopost.chart_platforms")}</div>
-                {include file="addons/rlsv_autopost/views/rlsv_account/_chart.tpl" chart=$rlsv_ov_dash.platform}
-            </div>
-        </div>
-
-        <div class="table-responsive-wrapper">
-            <table width="100%" class="ty-table">
-                <thead><tr>
-                    <th>{__("rlsv_autopost.col_product")}</th>
-                    <th>{__("rlsv_autopost.col_platform")}</th>
-                    <th>{__("rlsv_autopost.col_status")}</th>
-                    <th>{__("rlsv_autopost.col_date")}</th>
-                    <th>{__("rlsv_autopost.col_error")}</th>
-                </tr></thead>
-                <tbody>
-                    {foreach from=$rlsv_stats.rows item="row"}
-                        <tr>
-                            <td>{$row.product_name|escape}</td>
-                            <td>{$row.platform|escape}</td>
-                            <td><span class="rlsv-badge {$row.status|escape}">{$row.status|escape}</span></td>
-                            <td>{if $row.processed_at}{$row.processed_at|date_format:"%d.%m.%Y %H:%M"}{else}&mdash;{/if}</td>
-                            <td>{$row.error|escape|truncate:120}</td>
-                        </tr>
-                    {foreachelse}
-                        <tr><td colspan="5">{__("no_data")}</td></tr>
-                    {/foreach}
-                </tbody>
-            </table>
-        </div>
+        <ul class="flex flex-wrap gap-2 m-0 p-0 list-none rlsv-tabs">
+            <li>
+                <a href="#" data-rlsv-tab="overview" class="block px-4 py-2 text-sm font-medium rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900 transition-colors" style="text-decoration: none;">
+                    {__("rlsv_autopost.tab_overview")}
+                </a>
+            </li>
+            {foreach from=$rlsv_platforms item="pf"}
+                <li>
+                    <a href="#" data-rlsv-tab="ch_{$pf|escape}" class="block px-4 py-2 text-sm font-medium rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900 transition-colors capitalize" style="text-decoration: none;">
+                        {$pf|escape} <span class="bg-slate-200 text-slate-700 rounded-full px-2 py-0.5 ml-1 text-xs">{$rlsv_by_channel.$pf.total|default:0}</span>
+                    </a>
+                </li>
+            {/foreach}
+            <li>
+                <a href="#" data-rlsv-tab="by_product" class="block px-4 py-2 text-sm font-medium rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900 transition-colors" style="text-decoration: none;">
+                    {__("rlsv_autopost.tab_by_product")}
+                </a>
+            </li>
+        </ul>
+        <style>
+            .rlsv-tabs a.active { background-color: #46aaf2; color: #fff; box-shadow: 0 2px 4px rgba(70,170,242,0.3); }
+            .rlsv-tabs a.active:hover { background-color: #3182c4; color: #fff; }
+            .rlsv-tabs a.active span { background-color: rgba(255,255,255,0.2); color:#fff; }
+        </style>
     </div>
 
-    {* ===== По каналам ===== *}
-    {foreach from=$rlsv_platforms item="pf"}
-        {assign var="ch" value=$rlsv_by_channel.$pf}
-        {assign var="cd" value=$rlsv_ch_dash.$pf}
-        <div data-rlsv-pane="ch_{$pf|escape}" style="display:none;">
-            <div class="rlsv-cards">
-                <div class="rlsv-card"><div class="num">{$cd.total|number_format:0:".":" "}</div><div class="lbl">{__("rlsv_autopost.stat_total")}</div></div>
-                <div class="rlsv-card ok"><div class="num">{$cd.done|number_format:0:".":" "}</div><div class="lbl">{__("rlsv_autopost.stat_done")}</div></div>
-                <div class="rlsv-card err"><div class="num">{$cd.error|number_format:0:".":" "}</div><div class="lbl">{__("rlsv_autopost.stat_error")}</div></div>
-                <div class="rlsv-card"><div class="num">{$cd.pending|number_format:0:".":" "}</div><div class="lbl">{__("rlsv_autopost.stat_pending")}</div></div>
-                <div class="rlsv-card rate"><div class="num">{$cd.success}%</div><div class="lbl">{__("rlsv_autopost.stat_success")}</div></div>
+    <main class="flex-1 overflow-y-auto no-scrollbar p-5 pb-24">
+        {* ===== Обзор ===== *}
+        <div data-rlsv-pane="overview">
+            <div class="mb-3">
+                <h2 class="text-xs font-bold text-slate-500 uppercase tracking-widest m-0">{__("rlsv_autopost.stat_total")} Overview</h2>
             </div>
 
-            <div class="rlsv-charts">
-                <div class="rlsv-chart">
-                    <div class="rlsv-chart-t">{__("rlsv_autopost.chart_status")} &mdash; {$pf|escape}</div>
-                    {include file="addons/rlsv_autopost/views/rlsv_account/_chart.tpl" chart=$cd.status}
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-6">
+                <div class="bento-card col-span-2 lg:col-span-1 bg-gradient-to-br from-brand/5 to-white p-4 rounded-3xl border border-brand/20 shadow-sm flex flex-col justify-center relative overflow-hidden">
+                    <div class="absolute -bottom-10 -right-10 w-24 h-24 bg-brand/10 rounded-full blur-2xl"></div>
+                    <span class="text-[10px] font-medium text-slate-500 uppercase tracking-widest relative z-10">{__("rlsv_autopost.stat_total")}</span>
+                    <h3 class="text-3xl font-bold text-slate-900 mt-1 relative z-10">{$rlsv_ov_dash.total|number_format:0:".":" "}</h3>
+                </div>
+                <div class="bento-card bg-white p-4 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-center">
+                    <span class="text-[10px] font-medium text-slate-500 uppercase tracking-widest">{__("rlsv_autopost.stat_done")}</span>
+                    <h3 class="text-3xl font-bold text-success mt-1">{$rlsv_ov_dash.done|number_format:0:".":" "}</h3>
+                </div>
+                <div class="bento-card bg-white p-4 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-center">
+                    <span class="text-[10px] font-medium text-slate-500 uppercase tracking-widest">{__("rlsv_autopost.stat_error")}</span>
+                    <h3 class="text-3xl font-bold text-danger mt-1">{$rlsv_ov_dash.error|number_format:0:".":" "}</h3>
+                </div>
+                <div class="bento-card bg-white p-4 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-center">
+                    <span class="text-[10px] font-medium text-slate-500 uppercase tracking-widest">{__("rlsv_autopost.stat_pending")}</span>
+                    <h3 class="text-3xl font-bold text-warning mt-1">{$rlsv_ov_dash.pending|number_format:0:".":" "}</h3>
+                </div>
+                <div class="bento-card bg-white p-4 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-center">
+                    <span class="text-[10px] font-medium text-slate-500 uppercase tracking-widest">{__("rlsv_autopost.stat_success")}</span>
+                    <h3 class="text-3xl font-bold text-brand mt-1">{$rlsv_ov_dash.success}%</h3>
                 </div>
             </div>
 
-            <div class="table-responsive-wrapper">
-                <table width="100%" class="ty-table">
-                    <thead><tr>
-                        <th>{__("rlsv_autopost.col_product")}</th>
-                        <th>{__("rlsv_autopost.col_status")}</th>
-                        <th>{__("rlsv_autopost.col_date")}</th>
-                        <th>{__("rlsv_autopost.col_error")}</th>
-                    </tr></thead>
-                    <tbody>
-                        {foreach from=$ch.rows item="row"}
-                            <tr>
-                                <td>{if $row.product_name}{$row.product_name|escape}{else}#{$row.product_id}{/if}</td>
-                                <td><span class="rlsv-badge {$row.status|escape}">{$row.status|escape}</span></td>
-                                <td>{if $row.processed_at}{$row.processed_at|date_format:"%d.%m.%Y %H:%M"}{else}&mdash;{/if}</td>
-                                <td>{$row.error|escape|truncate:120}</td>
-                            </tr>
-                        {foreachelse}
-                            <tr><td colspan="4">{__("no_data")}</td></tr>
-                        {/foreach}
-                    </tbody>
-                </table>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div class="bento-card bg-white p-5 rounded-3xl border border-slate-200 shadow-sm">
+                    <h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">{__("rlsv_autopost.chart_status")}</h3>
+                    <div class="flex items-center justify-center">
+                        {include file="addons/rlsv_autopost/views/rlsv_account/_chart.tpl" chart=$rlsv_ov_dash.status}
+                    </div>
+                </div>
+                <div class="bento-card bg-white p-5 rounded-3xl border border-slate-200 shadow-sm">
+                    <h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">{__("rlsv_autopost.chart_platforms")}</h3>
+                    <div class="flex items-center justify-center">
+                        {include file="addons/rlsv_autopost/views/rlsv_account/_chart.tpl" chart=$rlsv_ov_dash.platform}
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <h2 class="text-xs font-bold text-slate-500 uppercase tracking-widest m-0">Recent Activity</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {foreach from=$rlsv_stats.rows item="row"}
+                <div class="bento-card bg-white p-4 rounded-3xl border border-slate-200 shadow-sm flex flex-col gap-2">
+                    <div class="flex justify-between items-start">
+                        <span class="text-sm font-bold text-slate-800">{$row.product_name|escape}</span>
+                        <span class="text-[10px] text-slate-400">{if $row.processed_at}{$row.processed_at|date_format:"%d.%m.%Y %H:%M"}{else}&mdash;{/if}</span>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-2 mt-2">
+                        <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-600">{$row.platform|escape}</span>
+
+                        {if $row.status == 'done'}
+                            <span class="text-[10px] bg-success/10 text-success px-2 py-1 rounded border border-success/20">{$row.status|escape}</span>
+                        {elseif $row.status == 'error'}
+                            <span class="text-[10px] bg-danger/10 text-danger px-2 py-1 rounded border border-danger/20">{$row.status|escape}</span>
+                        {elseif $row.status == 'pending' || $row.status == 'processing'}
+                            <span class="text-[10px] bg-warning/10 text-warning px-2 py-1 rounded border border-warning/20">{$row.status|escape}</span>
+                        {else}
+                            <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-1 rounded border border-slate-200">{$row.status|escape}</span>
+                        {/if}
+                    </div>
+
+                    {if $row.error}
+                        <div class="mt-3 text-xs text-danger bg-danger/5 p-2.5 rounded-lg border border-danger/10 truncate" title="{$row.error|escape}">
+                            {$row.error|escape|truncate:120}
+                        </div>
+                    {/if}
+                </div>
+                {foreachelse}
+                <div class="bento-card col-span-1 md:col-span-2 bg-white p-6 rounded-3xl border border-slate-200 text-center shadow-sm">
+                    <span class="text-sm text-slate-400">{__("no_data")}</span>
+                </div>
+                {/foreach}
             </div>
         </div>
-    {/foreach}
 
-    {* ===== По товарам ===== *}
-    <div data-rlsv-pane="by_product" style="display:none;">
-        <div class="table-responsive-wrapper">
-            <table width="100%" class="ty-table">
-                <thead><tr>
-                    <th>{__("rlsv_autopost.col_product")}</th>
-                    <th>{__("rlsv_autopost.stat_total")}</th>
-                    <th>{__("rlsv_autopost.stat_done")}</th>
-                    <th>{__("rlsv_autopost.stat_error")}</th>
-                    <th>{__("rlsv_autopost.last_published")}</th>
-                    <th>{__("rlsv_autopost.stat_by_platform")}</th>
-                    <th>&nbsp;</th>
-                </tr></thead>
-                <tbody>
-                    {foreach from=$rlsv_by_product item="p"}
-                        <tr>
-                            <td><a href="{$p.url}">{$p.product_name|escape}</a></td>
-                            <td>{$p.total}</td>
-                            <td>{$p.done}</td>
-                            <td>{$p.err}</td>
-                            <td>{if $p.last_at}{$p.last_at|date_format:"%d.%m.%Y %H:%M"}{else}&mdash;{/if}</td>
-                            <td>
-                                {foreach from=$p.platforms key="pf" item="pp" name="pp"}
-                                    {$pf|escape}: {$pp.done}/{$pp.cnt}{if !$smarty.foreach.pp.last}; {/if}
-                                {/foreach}
-                            </td>
-                            <td><a class="ty-btn ty-btn__secondary" href="{$p.edit_url}">{__("rlsv_autopost.edit_description")}</a></td>
-                        </tr>
+        {* ===== По каналам ===== *}
+        {foreach from=$rlsv_platforms item="pf"}
+            {assign var="ch" value=$rlsv_by_channel.$pf}
+            {assign var="cd" value=$rlsv_ch_dash.$pf}
+            <div data-rlsv-pane="ch_{$pf|escape}" style="display:none;">
+
+                <div class="mb-3">
+                    <h2 class="text-xs font-bold text-slate-500 uppercase tracking-widest m-0 capitalize">{$pf|escape} Stats</h2>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-6">
+                    <div class="bento-card col-span-2 lg:col-span-1 bg-gradient-to-br from-brand/5 to-white p-4 rounded-3xl border border-brand/20 shadow-sm flex flex-col justify-center relative overflow-hidden">
+                        <div class="absolute -bottom-10 -right-10 w-24 h-24 bg-brand/10 rounded-full blur-2xl"></div>
+                        <span class="text-[10px] font-medium text-slate-500 uppercase tracking-widest relative z-10">{__("rlsv_autopost.stat_total")}</span>
+                        <h3 class="text-3xl font-bold text-slate-900 mt-1 relative z-10">{$cd.total|number_format:0:".":" "}</h3>
+                    </div>
+                    <div class="bento-card bg-white p-4 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-center">
+                        <span class="text-[10px] font-medium text-slate-500 uppercase tracking-widest">{__("rlsv_autopost.stat_done")}</span>
+                        <h3 class="text-3xl font-bold text-success mt-1">{$cd.done|number_format:0:".":" "}</h3>
+                    </div>
+                    <div class="bento-card bg-white p-4 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-center">
+                        <span class="text-[10px] font-medium text-slate-500 uppercase tracking-widest">{__("rlsv_autopost.stat_error")}</span>
+                        <h3 class="text-3xl font-bold text-danger mt-1">{$cd.error|number_format:0:".":" "}</h3>
+                    </div>
+                    <div class="bento-card bg-white p-4 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-center">
+                        <span class="text-[10px] font-medium text-slate-500 uppercase tracking-widest">{__("rlsv_autopost.stat_pending")}</span>
+                        <h3 class="text-3xl font-bold text-warning mt-1">{$cd.pending|number_format:0:".":" "}</h3>
+                    </div>
+                    <div class="bento-card bg-white p-4 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-center">
+                        <span class="text-[10px] font-medium text-slate-500 uppercase tracking-widest">{__("rlsv_autopost.stat_success")}</span>
+                        <h3 class="text-3xl font-bold text-brand mt-1">{$cd.success}%</h3>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 mb-6">
+                    <div class="bento-card bg-white p-5 rounded-3xl border border-slate-200 shadow-sm max-w-2xl">
+                        <h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">{__("rlsv_autopost.chart_status")}</h3>
+                        <div class="flex items-center justify-center">
+                            {include file="addons/rlsv_autopost/views/rlsv_account/_chart.tpl" chart=$cd.status}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <h2 class="text-xs font-bold text-slate-500 uppercase tracking-widest m-0 capitalize">{$pf|escape} Log</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {foreach from=$ch.rows item="row"}
+                    <div class="bento-card bg-white p-4 rounded-3xl border border-slate-200 shadow-sm flex flex-col gap-2">
+                        <div class="flex justify-between items-start">
+                            <span class="text-sm font-bold text-slate-800">{if $row.product_name}{$row.product_name|escape}{else}#{$row.product_id}{/if}</span>
+                            <span class="text-[10px] text-slate-400">{if $row.processed_at}{$row.processed_at|date_format:"%d.%m.%Y %H:%M"}{else}&mdash;{/if}</span>
+                        </div>
+
+                        <div class="flex flex-wrap items-center gap-2 mt-2">
+                            {if $row.status == 'done'}
+                                <span class="text-[10px] bg-success/10 text-success px-2 py-1 rounded border border-success/20">{$row.status|escape}</span>
+                            {elseif $row.status == 'error'}
+                                <span class="text-[10px] bg-danger/10 text-danger px-2 py-1 rounded border border-danger/20">{$row.status|escape}</span>
+                            {elseif $row.status == 'pending' || $row.status == 'processing'}
+                                <span class="text-[10px] bg-warning/10 text-warning px-2 py-1 rounded border border-warning/20">{$row.status|escape}</span>
+                            {else}
+                                <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-1 rounded border border-slate-200">{$row.status|escape}</span>
+                            {/if}
+                        </div>
+
+                        {if $row.error}
+                            <div class="mt-3 text-xs text-danger bg-danger/5 p-2.5 rounded-lg border border-danger/10 truncate" title="{$row.error|escape}">
+                                {$row.error|escape|truncate:120}
+                            </div>
+                        {/if}
+                    </div>
                     {foreachelse}
-                        <tr><td colspan="7">{__("no_data")}</td></tr>
+                    <div class="bento-card col-span-1 md:col-span-2 bg-white p-6 rounded-3xl border border-slate-200 text-center shadow-sm">
+                        <span class="text-sm text-slate-400">{__("no_data")}</span>
+                    </div>
                     {/foreach}
-                </tbody>
-            </table>
+                </div>
+            </div>
+        {/foreach}
+
+        {* ===== По товарам ===== *}
+        <div data-rlsv-pane="by_product" style="display:none;">
+            <div class="mb-3">
+                <h2 class="text-xs font-bold text-slate-500 uppercase tracking-widest m-0">{__("rlsv_autopost.tab_by_product")}</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {foreach from=$rlsv_by_product item="p"}
+                <div class="bento-card bg-white p-5 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <a href="{$p.url}" class="text-sm font-bold text-brand hover:text-brand-dark transition-colors" style="text-decoration: none;">{$p.product_name|escape}</a>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-2 mb-4 bg-slate-50 p-3 rounded-2xl border border-slate-100">
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-slate-400 uppercase tracking-wider">{__("rlsv_autopost.stat_total")}</span>
+                                <span class="text-sm font-bold text-slate-800 mt-1">{$p.total}</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-slate-400 uppercase tracking-wider">{__("rlsv_autopost.stat_done")}</span>
+                                <span class="text-sm font-bold text-success mt-1">{$p.done}</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-slate-400 uppercase tracking-wider">{__("rlsv_autopost.stat_error")}</span>
+                                <span class="text-sm font-bold text-danger mt-1">{$p.err}</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <div class="text-[10px] text-slate-500 uppercase tracking-widest mb-2">{__("rlsv_autopost.stat_by_platform")}</div>
+                            <div class="flex flex-wrap gap-2">
+                                {foreach from=$p.platforms key="pf" item="pp" name="pp"}
+                                    <div class="bg-slate-100 px-2 py-1 rounded text-[10px] text-slate-700 flex gap-1">
+                                        <span class="capitalize font-medium">{$pf|escape}:</span>
+                                        <span class="{if $pp.done == $pp.cnt}text-success{else}text-slate-900{/if} font-bold">{$pp.done}/{$pp.cnt}</span>
+                                    </div>
+                                {/foreach}
+                            </div>
+                        </div>
+
+                        <div class="text-[10px] text-slate-400 flex items-center gap-1 mb-4">
+                            <i class="fa-regular fa-clock"></i>
+                            {__("rlsv_autopost.last_published")}: {if $p.last_at}{$p.last_at|date_format:"%d.%m.%Y %H:%M"}{else}&mdash;{/if}
+                        </div>
+                    </div>
+
+                    <a href="{$p.edit_url}" class="text-center w-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium py-2 rounded-xl transition-colors border border-slate-200" style="text-decoration: none;">
+                        <i class="fa-solid fa-pen-to-square mr-1"></i> {__("rlsv_autopost.edit_description")}
+                    </a>
+                </div>
+                {foreachelse}
+                <div class="bento-card col-span-1 md:col-span-2 bg-white p-6 rounded-3xl border border-slate-200 text-center shadow-sm">
+                    <span class="text-sm text-slate-400">{__("no_data")}</span>
+                </div>
+                {/foreach}
+            </div>
         </div>
-    </div>
+    </main>
 
     <script>
     (function(){
@@ -188,7 +324,11 @@
             var panes = [].slice.call(root.querySelectorAll('[data-rlsv-pane]'));
             function activate(id){
                 tabs.forEach(function(t){
-                    t.className = (t.getAttribute('data-rlsv-tab') === id) ? 'active' : '';
+                    if(t.getAttribute('data-rlsv-tab') === id) {
+                        t.classList.add('active');
+                    } else {
+                        t.classList.remove('active');
+                    }
                 });
                 panes.forEach(function(p){
                     p.style.display = (p.getAttribute('data-rlsv-pane') === id) ? '' : 'none';
