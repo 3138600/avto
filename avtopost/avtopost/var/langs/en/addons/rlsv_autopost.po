@@ -655,3 +655,508 @@ msgstr "Stories"
 msgctxt "Languages::rlsv_autopost.pub_type_hint"
 msgid "Choose how this product should be published."
 msgstr "Choose how this product should be published."
+
+
+msgctxt "SettingsSections::rlsv_autopost::vk"
+msgid "VK"
+msgstr "VK"
+
+msgctxt "SettingsSections::rlsv_autopost::telegram"
+msgid "Telegram"
+msgstr "Telegram"
+
+msgctxt "SettingsSections::rlsv_autopost::ok"
+msgid "OK"
+msgstr "OK"
+
+msgctxt "SettingsSections::rlsv_autopost::pinterest"
+msgid "Pinterest"
+msgstr "Pinterest"
+
+msgctxt "SettingsSections::rlsv_autopost::max"
+msgid "Max"
+msgstr "Max"
+
+msgctxt "SettingsSections::rlsv_autopost::youtube"
+msgid "YouTube"
+msgstr "YouTube"
+
+msgctxt "SettingsSections::rlsv_autopost::rutube"
+msgid "Rutube"
+msgstr "Rutube"
+
+msgctxt "SettingsOptions::rlsv_autopost::vk_feature_impressions"
+msgid "Feature ID — Impressions"
+msgstr "ID характеристики — Impressions"
+
+msgctxt "SettingsOptions::rlsv_autopost::vk_feature_reach"
+msgid "Feature ID — Reach"
+msgstr "ID характеристики — Reach"
+
+msgctxt "SettingsOptions::rlsv_autopost::vk_feature_engagement"
+msgid "Feature ID — Engagement"
+msgstr "ID характеристики — Engagement"
+
+msgctxt "SettingsOptions::rlsv_autopost::vk_feature_saved"
+msgid "Feature ID — Saved"
+msgstr "ID характеристики — Saved"
+
+msgctxt "SettingsOptions::rlsv_autopost::vk_feature_video_views"
+msgid "Feature ID — Video Views"
+msgstr "ID характеристики — Video Views"
+
+msgctxt "SettingsOptions::rlsv_autopost::vk_feature_plays"
+msgid "Feature ID — Plays"
+msgstr "ID характеристики — Plays"
+
+msgctxt "SettingsOptions::rlsv_autopost::vk_feature_total_interactions"
+msgid "Feature ID — Total Interactions"
+msgstr "ID характеристики — Total Interactions"
+
+msgctxt "SettingsOptions::rlsv_autopost::vk_feature_likes"
+msgid "Feature ID — Likes"
+msgstr "ID характеристики — Likes"
+
+msgctxt "SettingsOptions::rlsv_autopost::vk_feature_comments"
+msgid "Feature ID — Comments"
+msgstr "ID характеристики — Comments"
+
+msgctxt "SettingsOptions::rlsv_autopost::vk_feature_saves"
+msgid "Feature ID — Saves"
+msgstr "ID характеристики — Saves"
+
+msgctxt "SettingsOptions::rlsv_autopost::vk_feature_shares"
+msgid "Feature ID — Shares"
+msgstr "ID характеристики — Shares"
+
+msgctxt "SettingsOptions::rlsv_autopost::vk_feature_replies"
+msgid "Feature ID — Replies"
+msgstr "ID характеристики — Replies"
+
+msgctxt "SettingsOptions::rlsv_autopost::vk_feature_taps_forward"
+msgid "Feature ID — Taps Forward"
+msgstr "ID характеристики — Taps Forward"
+
+msgctxt "SettingsOptions::rlsv_autopost::vk_feature_taps_back"
+msgid "Feature ID — Taps Back"
+msgstr "ID характеристики — Taps Back"
+
+msgctxt "SettingsOptions::rlsv_autopost::vk_feature_exits"
+msgid "Feature ID — Exits"
+msgstr "ID характеристики — Exits"
+
+msgctxt "SettingsOptions::rlsv_autopost::vk_fetch_insights"
+msgid "Collect analytics (insights)"
+msgstr "Collect analytics (insights)"
+
+msgctxt "SettingsOptions::rlsv_autopost::vk_insights_limit"
+msgid "Insights limit"
+msgstr "Insights limit"
+
+msgctxt "SettingsOptions::rlsv_autopost::tg_feature_impressions"
+msgid "Feature ID — Impressions"
+msgstr "ID характеристики — Impressions"
+
+msgctxt "SettingsOptions::rlsv_autopost::tg_feature_reach"
+msgid "Feature ID — Reach"
+msgstr "ID характеристики — Reach"
+
+msgctxt "SettingsOptions::rlsv_autopost::tg_feature_engagement"
+msgid "Feature ID — Engagement"
+msgstr "ID характеристики — Engagement"
+
+msgctxt "SettingsOptions::rlsv_autopost::tg_feature_saved"
+msgid "Feature ID — Saved"
+msgstr "ID характеристики — Saved"
+
+msgctxt "SettingsOptions::rlsv_autopost::tg_feature_video_views"
+msgid "Feature ID — Video Views"
+msgstr "ID характеристики — Video Views"
+
+msgctxt "SettingsOptions::rlsv_autopost::tg_feature_plays"
+msgid "Feature ID — Plays"
+msgstr "ID характеристики — Plays"
+
+msgctxt "SettingsOptions::rlsv_autopost::tg_feature_total_interactions"
+msgid "Feature ID — Total Interactions"
+msgstr "ID характеристики — Total Interactions"
+
+msgctxt "SettingsOptions::rlsv_autopost::tg_feature_likes"
+msgid "Feature ID — Likes"
+msgstr "ID характеристики — Likes"
+
+msgctxt "SettingsOptions::rlsv_autopost::tg_feature_comments"
+msgid "Feature ID — Comments"
+msgstr "ID характеристики — Comments"
+
+msgctxt "SettingsOptions::rlsv_autopost::tg_feature_saves"
+msgid "Feature ID — Saves"
+msgstr "ID характеристики — Saves"
+
+msgctxt "SettingsOptions::rlsv_autopost::tg_feature_shares"
+msgid "Feature ID — Shares"
+msgstr "ID характеристики — Shares"
+
+msgctxt "SettingsOptions::rlsv_autopost::tg_feature_replies"
+msgid "Feature ID — Replies"
+msgstr "ID характеристики — Replies"
+
+msgctxt "SettingsOptions::rlsv_autopost::tg_feature_taps_forward"
+msgid "Feature ID — Taps Forward"
+msgstr "ID характеристики — Taps Forward"
+
+msgctxt "SettingsOptions::rlsv_autopost::tg_feature_taps_back"
+msgid "Feature ID — Taps Back"
+msgstr "ID характеристики — Taps Back"
+
+msgctxt "SettingsOptions::rlsv_autopost::tg_feature_exits"
+msgid "Feature ID — Exits"
+msgstr "ID характеристики — Exits"
+
+msgctxt "SettingsOptions::rlsv_autopost::tg_fetch_insights"
+msgid "Collect analytics (insights)"
+msgstr "Collect analytics (insights)"
+
+msgctxt "SettingsOptions::rlsv_autopost::tg_insights_limit"
+msgid "Insights limit"
+msgstr "Insights limit"
+
+msgctxt "SettingsOptions::rlsv_autopost::ok_feature_impressions"
+msgid "Feature ID — Impressions"
+msgstr "ID характеристики — Impressions"
+
+msgctxt "SettingsOptions::rlsv_autopost::ok_feature_reach"
+msgid "Feature ID — Reach"
+msgstr "ID характеристики — Reach"
+
+msgctxt "SettingsOptions::rlsv_autopost::ok_feature_engagement"
+msgid "Feature ID — Engagement"
+msgstr "ID характеристики — Engagement"
+
+msgctxt "SettingsOptions::rlsv_autopost::ok_feature_saved"
+msgid "Feature ID — Saved"
+msgstr "ID характеристики — Saved"
+
+msgctxt "SettingsOptions::rlsv_autopost::ok_feature_video_views"
+msgid "Feature ID — Video Views"
+msgstr "ID характеристики — Video Views"
+
+msgctxt "SettingsOptions::rlsv_autopost::ok_feature_plays"
+msgid "Feature ID — Plays"
+msgstr "ID характеристики — Plays"
+
+msgctxt "SettingsOptions::rlsv_autopost::ok_feature_total_interactions"
+msgid "Feature ID — Total Interactions"
+msgstr "ID характеристики — Total Interactions"
+
+msgctxt "SettingsOptions::rlsv_autopost::ok_feature_likes"
+msgid "Feature ID — Likes"
+msgstr "ID характеристики — Likes"
+
+msgctxt "SettingsOptions::rlsv_autopost::ok_feature_comments"
+msgid "Feature ID — Comments"
+msgstr "ID характеристики — Comments"
+
+msgctxt "SettingsOptions::rlsv_autopost::ok_feature_saves"
+msgid "Feature ID — Saves"
+msgstr "ID характеристики — Saves"
+
+msgctxt "SettingsOptions::rlsv_autopost::ok_feature_shares"
+msgid "Feature ID — Shares"
+msgstr "ID характеристики — Shares"
+
+msgctxt "SettingsOptions::rlsv_autopost::ok_feature_replies"
+msgid "Feature ID — Replies"
+msgstr "ID характеристики — Replies"
+
+msgctxt "SettingsOptions::rlsv_autopost::ok_feature_taps_forward"
+msgid "Feature ID — Taps Forward"
+msgstr "ID характеристики — Taps Forward"
+
+msgctxt "SettingsOptions::rlsv_autopost::ok_feature_taps_back"
+msgid "Feature ID — Taps Back"
+msgstr "ID характеристики — Taps Back"
+
+msgctxt "SettingsOptions::rlsv_autopost::ok_feature_exits"
+msgid "Feature ID — Exits"
+msgstr "ID характеристики — Exits"
+
+msgctxt "SettingsOptions::rlsv_autopost::ok_fetch_insights"
+msgid "Collect analytics (insights)"
+msgstr "Collect analytics (insights)"
+
+msgctxt "SettingsOptions::rlsv_autopost::ok_insights_limit"
+msgid "Insights limit"
+msgstr "Insights limit"
+
+msgctxt "SettingsOptions::rlsv_autopost::pinterest_feature_impressions"
+msgid "Feature ID — Impressions"
+msgstr "ID характеристики — Impressions"
+
+msgctxt "SettingsOptions::rlsv_autopost::pinterest_feature_reach"
+msgid "Feature ID — Reach"
+msgstr "ID характеристики — Reach"
+
+msgctxt "SettingsOptions::rlsv_autopost::pinterest_feature_engagement"
+msgid "Feature ID — Engagement"
+msgstr "ID характеристики — Engagement"
+
+msgctxt "SettingsOptions::rlsv_autopost::pinterest_feature_saved"
+msgid "Feature ID — Saved"
+msgstr "ID характеристики — Saved"
+
+msgctxt "SettingsOptions::rlsv_autopost::pinterest_feature_video_views"
+msgid "Feature ID — Video Views"
+msgstr "ID характеристики — Video Views"
+
+msgctxt "SettingsOptions::rlsv_autopost::pinterest_feature_plays"
+msgid "Feature ID — Plays"
+msgstr "ID характеристики — Plays"
+
+msgctxt "SettingsOptions::rlsv_autopost::pinterest_feature_total_interactions"
+msgid "Feature ID — Total Interactions"
+msgstr "ID характеристики — Total Interactions"
+
+msgctxt "SettingsOptions::rlsv_autopost::pinterest_feature_likes"
+msgid "Feature ID — Likes"
+msgstr "ID характеристики — Likes"
+
+msgctxt "SettingsOptions::rlsv_autopost::pinterest_feature_comments"
+msgid "Feature ID — Comments"
+msgstr "ID характеристики — Comments"
+
+msgctxt "SettingsOptions::rlsv_autopost::pinterest_feature_saves"
+msgid "Feature ID — Saves"
+msgstr "ID характеристики — Saves"
+
+msgctxt "SettingsOptions::rlsv_autopost::pinterest_feature_shares"
+msgid "Feature ID — Shares"
+msgstr "ID характеристики — Shares"
+
+msgctxt "SettingsOptions::rlsv_autopost::pinterest_feature_replies"
+msgid "Feature ID — Replies"
+msgstr "ID характеристики — Replies"
+
+msgctxt "SettingsOptions::rlsv_autopost::pinterest_feature_taps_forward"
+msgid "Feature ID — Taps Forward"
+msgstr "ID характеристики — Taps Forward"
+
+msgctxt "SettingsOptions::rlsv_autopost::pinterest_feature_taps_back"
+msgid "Feature ID — Taps Back"
+msgstr "ID характеристики — Taps Back"
+
+msgctxt "SettingsOptions::rlsv_autopost::pinterest_feature_exits"
+msgid "Feature ID — Exits"
+msgstr "ID характеристики — Exits"
+
+msgctxt "SettingsOptions::rlsv_autopost::pinterest_fetch_insights"
+msgid "Collect analytics (insights)"
+msgstr "Collect analytics (insights)"
+
+msgctxt "SettingsOptions::rlsv_autopost::pinterest_insights_limit"
+msgid "Insights limit"
+msgstr "Insights limit"
+
+msgctxt "SettingsOptions::rlsv_autopost::max_feature_impressions"
+msgid "Feature ID — Impressions"
+msgstr "ID характеристики — Impressions"
+
+msgctxt "SettingsOptions::rlsv_autopost::max_feature_reach"
+msgid "Feature ID — Reach"
+msgstr "ID характеристики — Reach"
+
+msgctxt "SettingsOptions::rlsv_autopost::max_feature_engagement"
+msgid "Feature ID — Engagement"
+msgstr "ID характеристики — Engagement"
+
+msgctxt "SettingsOptions::rlsv_autopost::max_feature_saved"
+msgid "Feature ID — Saved"
+msgstr "ID характеристики — Saved"
+
+msgctxt "SettingsOptions::rlsv_autopost::max_feature_video_views"
+msgid "Feature ID — Video Views"
+msgstr "ID характеристики — Video Views"
+
+msgctxt "SettingsOptions::rlsv_autopost::max_feature_plays"
+msgid "Feature ID — Plays"
+msgstr "ID характеристики — Plays"
+
+msgctxt "SettingsOptions::rlsv_autopost::max_feature_total_interactions"
+msgid "Feature ID — Total Interactions"
+msgstr "ID характеристики — Total Interactions"
+
+msgctxt "SettingsOptions::rlsv_autopost::max_feature_likes"
+msgid "Feature ID — Likes"
+msgstr "ID характеристики — Likes"
+
+msgctxt "SettingsOptions::rlsv_autopost::max_feature_comments"
+msgid "Feature ID — Comments"
+msgstr "ID характеристики — Comments"
+
+msgctxt "SettingsOptions::rlsv_autopost::max_feature_saves"
+msgid "Feature ID — Saves"
+msgstr "ID характеристики — Saves"
+
+msgctxt "SettingsOptions::rlsv_autopost::max_feature_shares"
+msgid "Feature ID — Shares"
+msgstr "ID характеристики — Shares"
+
+msgctxt "SettingsOptions::rlsv_autopost::max_feature_replies"
+msgid "Feature ID — Replies"
+msgstr "ID характеристики — Replies"
+
+msgctxt "SettingsOptions::rlsv_autopost::max_feature_taps_forward"
+msgid "Feature ID — Taps Forward"
+msgstr "ID характеристики — Taps Forward"
+
+msgctxt "SettingsOptions::rlsv_autopost::max_feature_taps_back"
+msgid "Feature ID — Taps Back"
+msgstr "ID характеристики — Taps Back"
+
+msgctxt "SettingsOptions::rlsv_autopost::max_feature_exits"
+msgid "Feature ID — Exits"
+msgstr "ID характеристики — Exits"
+
+msgctxt "SettingsOptions::rlsv_autopost::max_fetch_insights"
+msgid "Collect analytics (insights)"
+msgstr "Collect analytics (insights)"
+
+msgctxt "SettingsOptions::rlsv_autopost::max_insights_limit"
+msgid "Insights limit"
+msgstr "Insights limit"
+
+msgctxt "SettingsOptions::rlsv_autopost::youtube_feature_impressions"
+msgid "Feature ID — Impressions"
+msgstr "ID характеристики — Impressions"
+
+msgctxt "SettingsOptions::rlsv_autopost::youtube_feature_reach"
+msgid "Feature ID — Reach"
+msgstr "ID характеристики — Reach"
+
+msgctxt "SettingsOptions::rlsv_autopost::youtube_feature_engagement"
+msgid "Feature ID — Engagement"
+msgstr "ID характеристики — Engagement"
+
+msgctxt "SettingsOptions::rlsv_autopost::youtube_feature_saved"
+msgid "Feature ID — Saved"
+msgstr "ID характеристики — Saved"
+
+msgctxt "SettingsOptions::rlsv_autopost::youtube_feature_video_views"
+msgid "Feature ID — Video Views"
+msgstr "ID характеристики — Video Views"
+
+msgctxt "SettingsOptions::rlsv_autopost::youtube_feature_plays"
+msgid "Feature ID — Plays"
+msgstr "ID характеристики — Plays"
+
+msgctxt "SettingsOptions::rlsv_autopost::youtube_feature_total_interactions"
+msgid "Feature ID — Total Interactions"
+msgstr "ID характеристики — Total Interactions"
+
+msgctxt "SettingsOptions::rlsv_autopost::youtube_feature_likes"
+msgid "Feature ID — Likes"
+msgstr "ID характеристики — Likes"
+
+msgctxt "SettingsOptions::rlsv_autopost::youtube_feature_comments"
+msgid "Feature ID — Comments"
+msgstr "ID характеристики — Comments"
+
+msgctxt "SettingsOptions::rlsv_autopost::youtube_feature_saves"
+msgid "Feature ID — Saves"
+msgstr "ID характеристики — Saves"
+
+msgctxt "SettingsOptions::rlsv_autopost::youtube_feature_shares"
+msgid "Feature ID — Shares"
+msgstr "ID характеристики — Shares"
+
+msgctxt "SettingsOptions::rlsv_autopost::youtube_feature_replies"
+msgid "Feature ID — Replies"
+msgstr "ID характеристики — Replies"
+
+msgctxt "SettingsOptions::rlsv_autopost::youtube_feature_taps_forward"
+msgid "Feature ID — Taps Forward"
+msgstr "ID характеристики — Taps Forward"
+
+msgctxt "SettingsOptions::rlsv_autopost::youtube_feature_taps_back"
+msgid "Feature ID — Taps Back"
+msgstr "ID характеристики — Taps Back"
+
+msgctxt "SettingsOptions::rlsv_autopost::youtube_feature_exits"
+msgid "Feature ID — Exits"
+msgstr "ID характеристики — Exits"
+
+msgctxt "SettingsOptions::rlsv_autopost::youtube_fetch_insights"
+msgid "Collect analytics (insights)"
+msgstr "Collect analytics (insights)"
+
+msgctxt "SettingsOptions::rlsv_autopost::youtube_insights_limit"
+msgid "Insights limit"
+msgstr "Insights limit"
+
+msgctxt "SettingsOptions::rlsv_autopost::rutube_feature_impressions"
+msgid "Feature ID — Impressions"
+msgstr "ID характеристики — Impressions"
+
+msgctxt "SettingsOptions::rlsv_autopost::rutube_feature_reach"
+msgid "Feature ID — Reach"
+msgstr "ID характеристики — Reach"
+
+msgctxt "SettingsOptions::rlsv_autopost::rutube_feature_engagement"
+msgid "Feature ID — Engagement"
+msgstr "ID характеристики — Engagement"
+
+msgctxt "SettingsOptions::rlsv_autopost::rutube_feature_saved"
+msgid "Feature ID — Saved"
+msgstr "ID характеристики — Saved"
+
+msgctxt "SettingsOptions::rlsv_autopost::rutube_feature_video_views"
+msgid "Feature ID — Video Views"
+msgstr "ID характеристики — Video Views"
+
+msgctxt "SettingsOptions::rlsv_autopost::rutube_feature_plays"
+msgid "Feature ID — Plays"
+msgstr "ID характеристики — Plays"
+
+msgctxt "SettingsOptions::rlsv_autopost::rutube_feature_total_interactions"
+msgid "Feature ID — Total Interactions"
+msgstr "ID характеристики — Total Interactions"
+
+msgctxt "SettingsOptions::rlsv_autopost::rutube_feature_likes"
+msgid "Feature ID — Likes"
+msgstr "ID характеристики — Likes"
+
+msgctxt "SettingsOptions::rlsv_autopost::rutube_feature_comments"
+msgid "Feature ID — Comments"
+msgstr "ID характеристики — Comments"
+
+msgctxt "SettingsOptions::rlsv_autopost::rutube_feature_saves"
+msgid "Feature ID — Saves"
+msgstr "ID характеристики — Saves"
+
+msgctxt "SettingsOptions::rlsv_autopost::rutube_feature_shares"
+msgid "Feature ID — Shares"
+msgstr "ID характеристики — Shares"
+
+msgctxt "SettingsOptions::rlsv_autopost::rutube_feature_replies"
+msgid "Feature ID — Replies"
+msgstr "ID характеристики — Replies"
+
+msgctxt "SettingsOptions::rlsv_autopost::rutube_feature_taps_forward"
+msgid "Feature ID — Taps Forward"
+msgstr "ID характеристики — Taps Forward"
+
+msgctxt "SettingsOptions::rlsv_autopost::rutube_feature_taps_back"
+msgid "Feature ID — Taps Back"
+msgstr "ID характеристики — Taps Back"
+
+msgctxt "SettingsOptions::rlsv_autopost::rutube_feature_exits"
+msgid "Feature ID — Exits"
+msgstr "ID характеристики — Exits"
+
+msgctxt "SettingsOptions::rlsv_autopost::rutube_fetch_insights"
+msgid "Collect analytics (insights)"
+msgstr "Collect analytics (insights)"
+
+msgctxt "SettingsOptions::rlsv_autopost::rutube_insights_limit"
+msgid "Insights limit"
+msgstr "Insights limit"
