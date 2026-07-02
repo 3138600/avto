@@ -2559,6 +2559,115 @@ function fn_rlsv_autopost_read_product_feature_values($product_id, array $featur
  * Возвращает ту же структуру, что и API-версия (available/error/labels/
  * feature_map/dash/media), поэтому шаблон дашборда не меняется.
  */
+
+/**
+ * @return array [metric_key => feature_id(int)]
+ */
+function fn_rlsv_autopost_get_platform_feature_map($prefix)
+{
+    $metrics = array(
+        'impressions', 'reach', 'engagement', 'saved', 'video_views',
+        'plays', 'total_interactions', 'likes', 'comments', 'saves', 'shares',
+        'replies', 'taps_forward', 'taps_back', 'exits',
+    );
+
+    $map = array();
+    foreach ($metrics as $m) {
+        $fid = (int) Registry::get('addons.rlsv_autopost.' . $prefix . '_feature_' . $m);
+        if ($fid > 0) {
+            $map[$m] = $fid;
+        }
+    }
+
+    return $map;
+}
+
+/**
+ * Чтение аналитики из характеристик товаров пользователя для произвольной платформы.
+ */
+function fn_rlsv_autopost_get_platform_feature_analytics($user_id, $prefix)
+{
+    $labels = fn_rlsv_autopost_ig_metric_labels();
+    $fmap   = fn_rlsv_autopost_get_platform_feature_map($prefix);
+
+    $result = array(
+        'available'   => false,
+        'error'       => '',
+        'source'      => 'features',
+        'labels'      => $labels,
+        'feature_map' => $fmap,
+        'dash'        => array(),
+        'media'       => array(),
+    );
+
+    if (empty($fmap)) {
+        $result['error'] = 'no_features';
+        return $result;
+    }
+
+    $product_ids = fn_rlsv_autopost_get_user_product_ids((int) $user_id);
+    if (empty($product_ids)) {
+        $result['error'] = 'no_products';
+        return $result;
+    }
+
+    $names = db_get_hash_single_array(
+        "SELECT product_id, product FROM ?:product_descriptions WHERE product_id IN (?n) AND lang_code = ?s",
+        array('product_id', 'product'),
+        $product_ids, CART_LANGUAGE
+    );
+
+    $feature_ids   = array_values($fmap);
+    $fid_to_metric = array();
+    foreach ($fmap as $metric => $fid) {
+        $fid_to_metric[(int) $fid] = $metric;
+    }
+
+    $totals = array();
+    foreach (array_keys($fmap) as $m) {
+        $totals[$m] = 0;
+    }
+
+    // Собираем значения характеристик.
+    foreach ($product_ids as $pid) {
+        $vals = fn_rlsv_autopost_read_product_feature_values($pid, $feature_ids);
+        if (empty($vals)) {
+            continue;
+        }
+
+        $metrics_row = array();
+        foreach ($vals as $fid => $val) {
+            $m = $fid_to_metric[$fid];
+            $metrics_row[$m] = $val;
+            $totals[$m] += $val;
+        }
+
+        $result['media'][] = array(
+            'id'          => 'p_' . $pid,
+            'product_id'  => $pid,
+            'type_key'    => 'FEED_IMAGE', // Fallback for display
+            'type_label'  => 'Product',
+            'product_id'  => $pid,
+            'metrics'     => $metrics_row,
+        );
+    }
+
+    $dash = array(
+        'agg' => array(
+            'feed'    => $totals,
+            'reels'   => $totals, // Duplicate to fill the dashboard layout
+            'stories' => $totals,
+        ),
+        'spark' => array('has' => false),
+        'donut' => array('total' => 0),
+    );
+
+    $result['available'] = true;
+    $result['dash']      = $dash;
+
+    return $result;
+}
+
 function fn_rlsv_autopost_get_feature_analytics($user_id)
 {
     $labels = fn_rlsv_autopost_ig_metric_labels();

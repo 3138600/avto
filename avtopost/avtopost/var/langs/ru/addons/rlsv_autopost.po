@@ -1161,3 +1161,32 @@ msgstr "Собирать аналитику (insights)"
 msgctxt "SettingsOptions::rlsv_autopost::rutube_insights_limit"
 msgid "Insights limit"
 msgstr "Лимит записей для аналитики"
+
+
+msgctxt "Languages::rlsv_autopost.vk_analytics"
+msgid "VK analytics"
+msgstr "Аналитика VK"
+
+msgctxt "Languages::rlsv_autopost.telegram_analytics"
+msgid "Telegram analytics"
+msgstr "Аналитика Telegram"
+
+msgctxt "Languages::rlsv_autopost.ok_analytics"
+msgid "OK analytics"
+msgstr "Аналитика OK"
+
+msgctxt "Languages::rlsv_autopost.pinterest_analytics"
+msgid "Pinterest analytics"
+msgstr "Аналитика Pinterest"
+
+msgctxt "Languages::rlsv_autopost.max_analytics"
+msgid "Max analytics"
+msgstr "Аналитика Max"
+
+msgctxt "Languages::rlsv_autopost.youtube_analytics"
+msgid "YouTube analytics"
+msgstr "Аналитика YouTube"
+
+msgctxt "Languages::rlsv_autopost.rutube_analytics"
+msgid "Rutube analytics"
+msgstr "Аналитика Rutube"

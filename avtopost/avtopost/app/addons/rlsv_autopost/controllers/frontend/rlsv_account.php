@@ -120,6 +120,21 @@ if ($mode == 'instagram') {
     return array(CONTROLLER_STATUS_OK);
 }
 
+if (in_array($mode, array('vk', 'telegram', 'ok', 'pinterest', 'max', 'youtube', 'rutube'))) {
+    $prefix_map = array(
+        'vk'       => 'vk',
+        'telegram' => 'tg',
+        'ok'       => 'ok',
+        'pinterest'=> 'pinterest',
+        'max'      => 'max',
+        'youtube'  => 'youtube',
+        'rutube'   => 'rutube',
+    );
+    $prefix = $prefix_map[$mode];
+    Tygh::$app['view']->assign('rlsv_' . $prefix, fn_rlsv_autopost_get_platform_feature_analytics($user_id, $prefix));
+    return array(CONTROLLER_STATUS_OK);
+}
+
 /* ---------------------------------------------------------------------- *
  *  РЕДАКТОР КОНТЕНТА ТОВАРА (подробное описание + пер-товарные настройки)
  * ---------------------------------------------------------------------- */
