@@ -1,0 +1,239 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>rlsv_autopost</id>
+    <version>1.4.0</version>
+    <priority>10000</priority>
+    <position>100</position>
+    <status>active</status>
+    <default_language>ru</default_language>
+    <supplier>RLSV</supplier>
+    <supplier_link>https://rlsv.ru</supplier_link>
+
+    <!-- =========================================================
+         СХЕМА БД (идемпотентна, без ALTER ядровых таблиц)
+         - rlsv_autopost_queue : очередь публикаций
+         - rlsv_autopost_tokens: токены площадок, индивидуально по user_id
+         ========================================================= -->
+    <queries>
+        <item for="install">
+            <![CDATA[
+            CREATE TABLE IF NOT EXISTS `?:rlsv_autopost_queue` (
+                `queue_id`     int(11) unsigned NOT NULL AUTO_INCREMENT,
+                `product_id`   int(11) unsigned NOT NULL DEFAULT '0',
+                `user_id`      int(11) unsigned NOT NULL DEFAULT '0',
+                `platform`     varchar(32) NOT NULL DEFAULT '',
+                `status`       varchar(16) NOT NULL DEFAULT 'pending',
+                `payload`      mediumtext,
+                `attempts`     tinyint(3) unsigned NOT NULL DEFAULT '0',
+                `error`        text,
+                `run_after`    int(11) unsigned NOT NULL DEFAULT '0',
+                `created_at`   int(11) unsigned NOT NULL DEFAULT '0',
+                `processed_at` int(11) unsigned NOT NULL DEFAULT '0',
+                PRIMARY KEY (`queue_id`),
+                KEY `status` (`status`),
+                KEY `run_after` (`run_after`),
+                KEY `product_user_platform` (`product_id`,`user_id`,`platform`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            ]]>
+        </item>
+        <item for="install">
+            <![CDATA[
+            CREATE TABLE IF NOT EXISTS `?:rlsv_autopost_tokens` (
+                `user_id` int(11) unsigned NOT NULL,
+                `tokens`  text,
+                PRIMARY KEY (`user_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            ]]>
+        </item>
+        <item for="install">
+            <![CDATA[
+            CREATE TABLE IF NOT EXISTS `?:rlsv_autopost_products` (
+                `product_id`   int(11) unsigned NOT NULL,
+                `autopost`     char(1) NOT NULL DEFAULT 'Y',
+                `video_url`    varchar(255) NOT NULL DEFAULT '',
+                `pub_media`    char(1) NOT NULL DEFAULT 'Y',
+                `pub_carousel` char(1) NOT NULL DEFAULT 'N',
+                `pub_stories`  char(1) NOT NULL DEFAULT 'N',
+                PRIMARY KEY (`product_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            ]]>
+        </item>
+        <item for="install">
+            <![CDATA[
+            CREATE TABLE IF NOT EXISTS `?:rlsv_autopost_categories` (
+                `category_id` int(11) unsigned NOT NULL,
+                `autopost`    char(1) NOT NULL DEFAULT 'N',
+                PRIMARY KEY (`category_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            ]]>
+        </item>
+        <item for="install">
+            <![CDATA[
+            CREATE TABLE IF NOT EXISTS `?:rlsv_autopost_user_links` (
+                `user_id`   int(11) unsigned NOT NULL,
+                `link_type` varchar(16) NOT NULL DEFAULT 'product',
+                `object_id` int(11) unsigned NOT NULL,
+                PRIMARY KEY (`user_id`,`link_type`,`object_id`),
+                KEY `link_lookup` (`link_type`,`object_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            ]]>
+        </item>
+        <item for="install">
+            <![CDATA[
+            CREATE TABLE IF NOT EXISTS `?:rlsv_autopost_ig_media` (
+                `media_id`     varchar(64) NOT NULL,
+                `product_id`   int(11) unsigned NOT NULL DEFAULT 0,
+                `user_id`      int(11) unsigned NOT NULL DEFAULT 0,
+                `media_type`   varchar(20) NOT NULL DEFAULT 'FEED_IMAGE',
+                `published_at` int(11) unsigned NOT NULL DEFAULT 0,
+                `synced_at`    int(11) unsigned NOT NULL DEFAULT 0,
+                PRIMARY KEY (`media_id`),
+                KEY `product_id` (`product_id`),
+                KEY `user_id` (`user_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            ]]>
+        </item>
+        <item for="uninstall">DROP TABLE IF EXISTS `?:rlsv_autopost_queue`;</item>
+        <item for="uninstall">DROP TABLE IF EXISTS `?:rlsv_autopost_tokens`;</item>
+        <item for="uninstall">DROP TABLE IF EXISTS `?:rlsv_autopost_products`;</item>
+        <item for="uninstall">DROP TABLE IF EXISTS `?:rlsv_autopost_categories`;</item>
+        <item for="uninstall">DROP TABLE IF EXISTS `?:rlsv_autopost_user_links`;</item>
+        <item for="uninstall">DROP TABLE IF EXISTS `?:rlsv_autopost_ig_media`;</item>
+    </queries>
+
+    <!-- =========================================================
+         НАСТРОЙКИ МОДУЛЯ (scheme 3.0: id/type — атрибуты!)
+         Подписи берутся из языковых переменных; импортируйте
+         rlsv_autopost_ru.po через Администрирование -> Языки.
+         ========================================================= -->
+    <settings>
+        <sections>
+            <section id="general">
+                <items>
+                    <item id="target_category_id">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="target_usergroup_id">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="video_object_feature_id">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="post_delay_minutes">
+                        <type>input</type>
+                        <default_value>0</default_value>
+                    </item>
+                    <item id="cron_batch_size">
+                        <type>input</type>
+                        <default_value>20</default_value>
+                    </item>
+                    <item id="cron_password">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="feed_secret">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="token_crypt_key">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                </items>
+            </section>
+            <section id="platforms">
+                <items>
+                    <item id="enabled_platforms">
+                        <type>multiple_checkboxes</type>
+                        <variants>
+                            <item id="vk"/>
+                            <item id="instagram"/>
+                            <item id="telegram"/>
+                            <item id="ok"/>
+                            <item id="pinterest"/>
+                            <item id="max"/>
+                            <item id="youtube"/>
+                            <item id="rutube"/>
+                        </variants>
+                        <default_value>vk,telegram,ok</default_value>
+                    </item>
+                </items>
+            </section>
+            <section id="instagram">
+                <items>
+                    <item id="ig_feature_impressions">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ig_feature_reach">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ig_feature_engagement">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ig_feature_saved">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ig_feature_video_views">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ig_feature_plays">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ig_feature_total_interactions">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ig_feature_likes">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ig_feature_comments">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ig_feature_saves">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ig_feature_shares">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ig_feature_replies">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ig_feature_taps_forward">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ig_feature_taps_back">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ig_feature_exits">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ig_fetch_insights">
+                        <type>checkbox</type>
+                        <default_value>Y</default_value>
+                    </item>
+                    <item id="ig_insights_limit">
+                        <type>input</type>
+                        <default_value>15</default_value>
+                    </item>
+                </items>
+            </section>
+        </sections>
+    </settings>
+</addon>

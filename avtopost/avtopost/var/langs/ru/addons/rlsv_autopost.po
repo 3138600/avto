@@ -1,0 +1,658 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cs-cart-latest\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language-Team: Russian\n"
+"Language: ru_RU\n"
+"Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
+"Last-Translator: RLSV\n"
+"PO-Revision-Date: 2026-06-30 00:00\n"
+
+msgctxt "Addons::name::rlsv_autopost"
+msgid "RLSV Autopost"
+msgstr "RLSV — Автопостинг недвижимости"
+
+msgctxt "Addons::description::rlsv_autopost"
+msgid "Cross-posting of commercial real estate listings to 8 platforms (PUSH) and 3 XML feeds (PULL). Queue + cron, per-administrator tokens, logging via core event log."
+msgstr "Кросс-постинг карточек коммерческой недвижимости на 8 площадок (PUSH) и 3 XML-фида (PULL). Очередь и крон, токены в профиле администратора, логирование через журнал событий ядра."
+
+msgctxt "SettingsSections::rlsv_autopost::general"
+msgid "General"
+msgstr "Общие настройки"
+
+msgctxt "SettingsSections::rlsv_autopost::platforms"
+msgid "Active platforms (PUSH)"
+msgstr "Активные площадки (PUSH)"
+
+msgctxt "SettingsOptions::rlsv_autopost::target_category_id"
+msgid "Target category ID"
+msgstr "ID целевой категории (фильтр публикации)"
+
+msgctxt "SettingsTooltips::rlsv_autopost::target_category_id"
+msgid "Only products linked to this category are published. Leave empty to disable the filter."
+msgstr "Публикуются только товары, привязанные к этой категории. Оставьте пустым, чтобы отключить фильтр."
+
+msgctxt "SettingsOptions::rlsv_autopost::target_usergroup_id"
+msgid "Target usergroup ID"
+msgstr "ID группы пользователей-издателей"
+
+msgctxt "SettingsTooltips::rlsv_autopost::target_usergroup_id"
+msgid "Only administrators from this usergroup are used as token sources. Leave empty for all administrators."
+msgstr "Автопостом занимаются ОБЫЧНЫЕ пользователи (не обязательно администраторы), состоящие в этой группе, — используются их токены. Укажите ID группы (Покупатели → Группы пользователей). Если поле пустое, публикуют только пользователи, явно привязанные к товару или категории."
+
+msgctxt "SettingsOptions::rlsv_autopost::video_object_feature_id"
+msgid "Video feature ID"
+msgstr "ID характеристики товара с URL видеопрезентации (YouTube/RuTube)"
+
+msgctxt "SettingsTooltips::rlsv_autopost::video_object_feature_id"
+msgid "Product feature that stores the video URL used for YouTube and RuTube uploads."
+msgstr "Характеристика товара, в которой хранится URL видео для загрузки на YouTube и RuTube."
+
+msgctxt "SettingsOptions::rlsv_autopost::post_delay_minutes"
+msgid "Publish delay, minutes"
+msgstr "Задержка публикации, минут (0 = сразу по крону)"
+
+msgctxt "SettingsOptions::rlsv_autopost::cron_batch_size"
+msgid "Cron batch size"
+msgstr "Размер пачки крона (задач за один проход)"
+
+msgctxt "SettingsOptions::rlsv_autopost::cron_password"
+msgid "Cron password"
+msgstr "Пароль крона (защита dispatch=rlsv_oauth.cron)"
+
+msgctxt "SettingsTooltips::rlsv_autopost::cron_password"
+msgid "Required to run the queue: index.php?dispatch=rlsv_oauth.cron&cron_password=..."
+msgstr "Обязателен для запуска очереди: index.php?dispatch=rlsv_oauth.cron&cron_password=..."
+
+msgctxt "SettingsOptions::rlsv_autopost::feed_secret"
+msgid "Feed secret"
+msgstr "Секрет для доступа к XML-фидам (необязательно)"
+
+msgctxt "SettingsOptions::rlsv_autopost::enabled_platforms"
+msgid "Enabled platforms"
+msgstr "Включённые площадки"
+
+msgctxt "SettingsVariants::rlsv_autopost::enabled_platforms::vk"
+msgid "VK"
+msgstr "ВКонтакте"
+
+msgctxt "SettingsVariants::rlsv_autopost::enabled_platforms::instagram"
+msgid "Instagram"
+msgstr "Instagram"
+
+msgctxt "SettingsVariants::rlsv_autopost::enabled_platforms::telegram"
+msgid "Telegram"
+msgstr "Telegram"
+
+msgctxt "SettingsVariants::rlsv_autopost::enabled_platforms::ok"
+msgid "Odnoklassniki"
+msgstr "Одноклассники"
+
+msgctxt "SettingsVariants::rlsv_autopost::enabled_platforms::pinterest"
+msgid "Pinterest"
+msgstr "Pinterest"
+
+msgctxt "SettingsVariants::rlsv_autopost::enabled_platforms::max"
+msgid "Max"
+msgstr "МАКС"
+
+msgctxt "SettingsVariants::rlsv_autopost::enabled_platforms::youtube"
+msgid "YouTube"
+msgstr "YouTube"
+
+msgctxt "SettingsVariants::rlsv_autopost::enabled_platforms::rutube"
+msgid "RuTube"
+msgstr "RuTube"
+
+msgctxt "Languages::rlsv_autopost.tokens_title"
+msgid "RLSV Autopost — platform tokens"
+msgstr "Автопостинг RLSV — токены площадок"
+
+msgctxt "Languages::rlsv_autopost.tab"
+msgid "Autoposting"
+msgstr "Автопостинг"
+
+msgctxt "Languages::rlsv_autopost.tokens_hint"
+msgid "Tokens are set individually per administrator and are used only for the target usergroup."
+msgstr "Токены задаются индивидуально для каждого администратора и используются только для целевой группы."
+
+msgctxt "Languages::rlsv_autopost.publish_product"
+msgid "Publish this product via autoposting"
+msgstr "Публиковать этот товар в автопостинг"
+
+msgctxt "Languages::rlsv_autopost.product_video_url"
+msgid "Video URL (overrides the product feature)"
+msgstr "URL видео (переопределяет характеристику товара)"
+
+msgctxt "Languages::rlsv_autopost.publish_category"
+msgid "Publish products of this category"
+msgstr "Публиковать товары этой категории"
+
+msgctxt "Languages::rlsv_autopost.publish_category_hint"
+msgid "Products of the marked category are added to the publication filter, in addition to the global target category."
+msgstr "Товары отмеченной категории добавляются к фильтру публикации в дополнение к общей целевой категории."
+
+msgctxt "Languages::rlsv_autopost.binding_legend"
+msgid "Bound products and categories (this administrator publishes them)"
+msgstr "Привязанные товары и категории (их публикует этот администратор)"
+
+msgctxt "Languages::rlsv_autopost.bound_categories"
+msgid "Bound categories (product groups)"
+msgstr "Привязанные категории (группы товаров)"
+
+msgctxt "Languages::rlsv_autopost.bound_products"
+msgid "Bound products"
+msgstr "Привязанные товары"
+
+msgctxt "Languages::rlsv_autopost.stats"
+msgid "Autoposting: statistics"
+msgstr "Автопостинг: статистика"
+
+msgctxt "Languages::rlsv_autopost_stats"
+msgid "Autoposting: statistics"
+msgstr "Автопостинг: статистика"
+
+msgctxt "Languages::rlsv_autopost.details"
+msgid "Details"
+msgstr "Подробнее"
+
+msgctxt "Languages::rlsv_autopost.back_to_profile"
+msgid "Back to profile"
+msgstr "Вернуться в профиль"
+
+msgctxt "Languages::rlsv_autopost.stat_total"
+msgid "Total tasks"
+msgstr "Всего задач"
+
+msgctxt "Languages::rlsv_autopost.stat_done"
+msgid "Published"
+msgstr "Опубликовано"
+
+msgctxt "Languages::rlsv_autopost.stat_error"
+msgid "Errors"
+msgstr "Ошибки"
+
+msgctxt "Languages::rlsv_autopost.stat_pending"
+msgid "Pending"
+msgstr "В очереди"
+
+msgctxt "Languages::rlsv_autopost.stat_by_platform"
+msgid "Published by platform"
+msgstr "Опубликовано по площадкам"
+
+msgctxt "Languages::rlsv_autopost.col_product"
+msgid "Product"
+msgstr "Товар"
+
+msgctxt "Languages::rlsv_autopost.col_platform"
+msgid "Platform"
+msgstr "Площадка"
+
+msgctxt "Languages::rlsv_autopost.col_status"
+msgid "Status"
+msgstr "Статус"
+
+msgctxt "Languages::rlsv_autopost.col_date"
+msgid "Date"
+msgstr "Дата"
+
+msgctxt "Languages::rlsv_autopost.col_error"
+msgid "Error"
+msgstr "Ошибка"
+
+msgctxt "Languages::rlsv_autopost.col_user"
+msgid "Administrator"
+msgstr "Администратор"
+
+msgctxt "Languages::rlsv_autopost.proxy_legend"
+msgid "Proxy"
+msgstr "Прокси"
+
+msgctxt "Languages::rlsv_autopost.proxy"
+msgid "Proxy for publishing"
+msgstr "Прокси для публикации"
+
+msgctxt "Languages::rlsv_autopost.proxy_hint"
+msgid "All outgoing requests for this administrator go through this proxy. Format: http://user:pass@host:port (socks5://… is also supported)."
+msgstr "Все исходящие запросы этого администратора идут через указанный прокси. Формат: http://user:pass@host:port (поддерживается и socks5://…)."
+
+msgctxt "Languages::rlsv_autopost.cleanup_legend"
+msgid "Junk cleanup"
+msgstr "Очистка от мусора"
+
+msgctxt "Languages::rlsv_autopost.cleanup_done"
+msgid "Cleanup completed"
+msgstr "Очистка выполнена"
+
+msgctxt "Languages::rlsv_autopost.days"
+msgid "days"
+msgstr "дней"
+
+msgctxt "Languages::rlsv_autopost.cleanup_old"
+msgid "Remove processed tasks older than"
+msgstr "Удалить обработанные задачи старше"
+
+msgctxt "Languages::rlsv_autopost.cleanup_old_btn"
+msgid "Remove old"
+msgstr "Удалить старые"
+
+msgctxt "Languages::rlsv_autopost.cleanup_done_btn"
+msgid "Remove published"
+msgstr "Удалить опубликованные"
+
+msgctxt "Languages::rlsv_autopost.cleanup_errors_btn"
+msgid "Remove errors"
+msgstr "Удалить ошибочные"
+
+msgctxt "Languages::rlsv_autopost.cleanup_orphans_btn"
+msgid "Remove orphans (broken links)"
+msgstr "Удалить мусор (битые привязки)"
+
+msgctxt "Languages::rlsv_autopost.cleanup_all_btn"
+msgid "Clear entire queue"
+msgstr "Очистить всю очередь"
+
+
+msgctxt "SettingsOptions::rlsv_autopost::token_crypt_key"
+msgid "Token encryption key"
+msgstr "Ключ шифрования токенов"
+
+msgctxt "SettingsTooltips::rlsv_autopost::token_crypt_key"
+msgid "Secret key used to encrypt platform tokens at rest (AES-256). Set a long random string. If empty, a key is derived from install-specific values. Changing it makes previously saved tokens unreadable."
+msgstr "Секрет для шифрования токенов площадок в БД (AES-256). Задайте длинную случайную строку. Если пусто — ключ выводится из install-специфичных значений. Смена ключа делает ранее сохранённые токены нечитаемыми."
+
+msgctxt "Languages::rlsv_autopost.my_settings"
+msgid "Autoposting: API settings"
+msgstr "Автопостинг: настройки API"
+
+msgctxt "Languages::rlsv_autopost.my_stats"
+msgid "Autoposting: my analytics"
+msgstr "Автопостинг: моя аналитика"
+
+msgctxt "Languages::rlsv_autopost.settings_intro"
+msgid "Fill in the tokens for the platforms you publish to. Fields are saved only for your account and stored encrypted."
+msgstr "Заполните токены площадок, на которые публикуете контент. Поля сохраняются только в вашем профиле и хранятся в зашифрованном виде."
+
+msgctxt "Languages::rlsv_autopost.settings_saved"
+msgid "Settings saved"
+msgstr "Настройки сохранены"
+
+msgctxt "Languages::rlsv_autopost.product_saved"
+msgid "Product content saved"
+msgstr "Контент товара сохранён"
+
+msgctxt "Languages::rlsv_autopost.csrf_failed"
+msgid "Security check failed. Please reload the page and try again."
+msgstr "Не пройдена проверка безопасности. Обновите страницу и попробуйте снова."
+
+msgctxt "Languages::rlsv_autopost.proxy_invalid"
+msgid "Proxy address is invalid and was not saved. Expected format: http://user:pass@host:port"
+msgstr "Адрес прокси некорректен и не сохранён. Ожидаемый формат: http://user:pass@host:port"
+
+msgctxt "Languages::rlsv_autopost.tab_overview"
+msgid "Overview"
+msgstr "Обзор"
+
+msgctxt "Languages::rlsv_autopost.tab_by_product"
+msgid "By product"
+msgstr "По товарам"
+
+msgctxt "Languages::rlsv_autopost.last_published"
+msgid "Last published"
+msgstr "Последняя публикация"
+
+msgctxt "Languages::rlsv_autopost.edit_description"
+msgid "Edit content"
+msgstr "Редактировать контент"
+
+msgctxt "Languages::rlsv_autopost.full_description"
+msgid "Detailed description"
+msgstr "Подробное описание"
+
+msgctxt "Languages::rlsv_autopost.full_description_hint"
+msgid "HTML is allowed (formatting, lists, links, images). Unsafe tags and scripts are removed automatically on save."
+msgstr "Допустим HTML (форматирование, списки, ссылки, изображения). Небезопасные теги и скрипты автоматически удаляются при сохранении."
+
+msgctxt "Languages::rlsv_autopost.open_product"
+msgid "Open on storefront"
+msgstr "Открыть на витрине"
+
+msgctxt "Languages::rlsv_autopost.account_panel"
+msgid "Autoposting"
+msgstr "Автопостинг"
+
+msgctxt "Languages::rlsv_autopost.account_panel_hint"
+msgid "Manage your publishing API settings and view your publication analytics."
+msgstr "Управляйте настройками API для публикаций и смотрите аналитику своих публикаций."
+
+msgctxt "Languages::rlsv_autopost.bound_publishers"
+msgid "Publishers of this product"
+msgstr "Издатели этого товара"
+
+msgctxt "Languages::rlsv_autopost.bound_publishers_hint"
+msgid "Users selected here will autopost this product to their platforms (using their own API tokens)."
+msgstr "Выбранные пользователи будут публиковать этот товар на свои площадки (используя свои токены API)."
+
+msgctxt "SettingsSections::rlsv_autopost::instagram"
+msgid "Instagram"
+msgstr "Instagram"
+
+msgctxt "SettingsOptions::rlsv_autopost::ig_media_feature_id"
+msgid "Product feature ID for the post link"
+msgstr "ID характеристики товара для ссылки на публикацию"
+
+msgctxt "SettingsTooltips::rlsv_autopost::ig_media_feature_id"
+msgid "Numeric ID of a text product feature where the module will store the published Instagram media link/ID. Leave empty to skip."
+msgstr "Числовой ID текстовой характеристики товара, куда модуль запишет ссылку/ID опубликованного медиа Instagram. Оставьте пустым, чтобы не записывать."
+
+msgctxt "SettingsOptions::rlsv_autopost::ig_fetch_insights"
+msgid "Collect Instagram analytics (insights)"
+msgstr "Собирать аналитику Instagram (insights)"
+
+msgctxt "SettingsTooltips::rlsv_autopost::ig_fetch_insights"
+msgid "Enables the extended Instagram analytics page (feed/Reels/Stories). Requires a business/Creator account and instagram_manage_insights permission."
+msgstr "Включает страницу расширенной аналитики Instagram (лента/Reels/Stories). Требуется бизнес/Creator-аккаунт и права instagram_manage_insights."
+
+msgctxt "SettingsOptions::rlsv_autopost::ig_insights_limit"
+msgid "Number of recent posts to analyze"
+msgstr "Сколько последних публикаций анализировать"
+
+msgctxt "SettingsTooltips::rlsv_autopost::ig_insights_limit"
+msgid "How many recent feed/Reels posts to request insights for (1-50). Higher values load slower."
+msgstr "Количество последних публикаций ленты/Reels, по которым запрашивать insights (1–50). Больше — медленнее загрузка страницы."
+
+msgctxt "Languages::rlsv_autopost.ig_analytics"
+msgid "Instagram analytics"
+msgstr "Аналитика Instagram"
+
+msgctxt "Languages::rlsv_autopost.ig_impressions"
+msgid "Impressions"
+msgstr "Показы"
+
+msgctxt "Languages::rlsv_autopost.ig_reach"
+msgid "Reach"
+msgstr "Охват"
+
+msgctxt "Languages::rlsv_autopost.ig_engagement"
+msgid "Engagement"
+msgstr "Вовлечённость"
+
+msgctxt "Languages::rlsv_autopost.ig_saved"
+msgid "Saved"
+msgstr "Сохранения"
+
+msgctxt "Languages::rlsv_autopost.ig_video_views"
+msgid "Video views"
+msgstr "Просмотры видео"
+
+msgctxt "Languages::rlsv_autopost.ig_plays"
+msgid "Plays"
+msgstr "Воспроизведения"
+
+msgctxt "Languages::rlsv_autopost.ig_total_interactions"
+msgid "Total interactions"
+msgstr "Взаимодействия"
+
+msgctxt "Languages::rlsv_autopost.ig_likes"
+msgid "Likes"
+msgstr "Лайки"
+
+msgctxt "Languages::rlsv_autopost.ig_comments"
+msgid "Comments"
+msgstr "Комментарии"
+
+msgctxt "Languages::rlsv_autopost.ig_saves"
+msgid "Saves"
+msgstr "Сохранения"
+
+msgctxt "Languages::rlsv_autopost.ig_shares"
+msgid "Shares"
+msgstr "Репосты"
+
+msgctxt "Languages::rlsv_autopost.ig_replies"
+msgid "Replies"
+msgstr "Ответы"
+
+msgctxt "Languages::rlsv_autopost.ig_taps_forward"
+msgid "Taps forward"
+msgstr "Касания «Вперёд»"
+
+msgctxt "Languages::rlsv_autopost.ig_taps_back"
+msgid "Taps back"
+msgstr "Касания «Назад»"
+
+msgctxt "Languages::rlsv_autopost.ig_exits"
+msgid "Exits"
+msgstr "Выходы"
+
+msgctxt "Languages::rlsv_autopost.ig_type_photo"
+msgid "Photo"
+msgstr "Фото"
+
+msgctxt "Languages::rlsv_autopost.ig_type_video"
+msgid "Video"
+msgstr "Видео"
+
+msgctxt "Languages::rlsv_autopost.ig_type_carousel"
+msgid "Carousel"
+msgstr "Карусель"
+
+msgctxt "Languages::rlsv_autopost.ig_type_reels"
+msgid "Reels"
+msgstr "Reels"
+
+msgctxt "Languages::rlsv_autopost.ig_type_story"
+msgid "Story"
+msgstr "История"
+
+msgctxt "Languages::rlsv_autopost.ig_disabled"
+msgid "Insights collection is disabled. Enable it in the module settings (Instagram tab)."
+msgstr "Сбор insights отключён. Включите его в настройках модуля (вкладка Instagram)."
+
+msgctxt "Languages::rlsv_autopost.ig_no_tokens"
+msgid "Instagram tokens are not set. Fill them in settings:"
+msgstr "Не заданы токены Instagram. Заполните их в настройках:"
+
+msgctxt "Languages::rlsv_autopost.ig_api_error"
+msgid "Failed to fetch data from the Instagram API"
+msgstr "Не удалось получить данные из Instagram API"
+
+msgctxt "Languages::rlsv_autopost.ig_no_metrics"
+msgid "Metrics are unavailable (no insights permission, or the media is too new/old)."
+msgstr "Метрики недоступны (нет прав insights, либо медиа слишком новое/старое)."
+
+msgctxt "Languages::rlsv_autopost.ig_insights_note"
+msgid "Data from the Instagram Graph API - for a business/Creator account with insights permission. Story stats are available for 24 hours only."
+msgstr "Данные из Instagram Graph API — для бизнес/Creator-аккаунта с правами на insights. Статистика историй доступна только 24 часа."
+
+msgctxt "SettingsOptions::rlsv_autopost::ig_feature_impressions"
+msgid "Feature ID — Impressions"
+msgstr "ID характеристики — Показы (Impressions)"
+
+msgctxt "SettingsTooltips::rlsv_autopost::ig_feature_impressions"
+msgid "Total number of times the post was shown on users' screens."
+msgstr "Общее количество раз, когда публикация была показана на экранах пользователей."
+
+msgctxt "SettingsOptions::rlsv_autopost::ig_feature_reach"
+msgid "Feature ID — Reach"
+msgstr "ID характеристики — Охват (Reach)"
+
+msgctxt "SettingsTooltips::rlsv_autopost::ig_feature_reach"
+msgid "Number of unique accounts that saw the post."
+msgstr "Количество уникальных аккаунтов, которые увидели публикацию."
+
+msgctxt "SettingsOptions::rlsv_autopost::ig_feature_engagement"
+msgid "Feature ID — Engagement"
+msgstr "ID характеристики — Вовлечённость (Engagement)"
+
+msgctxt "SettingsTooltips::rlsv_autopost::ig_feature_engagement"
+msgid "Total likes, comments and saves of the post."
+msgstr "Общее количество лайков, комментариев и сохранений публикации."
+
+msgctxt "SettingsOptions::rlsv_autopost::ig_feature_saved"
+msgid "Feature ID — Saved (feed)"
+msgstr "ID характеристики — Сохранения (Saved, лента)"
+
+msgctxt "SettingsTooltips::rlsv_autopost::ig_feature_saved"
+msgid "Number of users who saved the post to bookmarks."
+msgstr "Количество пользователей, сохранивших публикацию в закладки."
+
+msgctxt "SettingsOptions::rlsv_autopost::ig_feature_video_views"
+msgid "Feature ID — Video Views"
+msgstr "ID характеристики — Просмотры видео (Video Views)"
+
+msgctxt "SettingsTooltips::rlsv_autopost::ig_feature_video_views"
+msgid "Legacy video only: number of views longer than 3 seconds."
+msgstr "Только для старых форматов видео: количество просмотров видео длительностью более 3 секунд."
+
+msgctxt "SettingsOptions::rlsv_autopost::ig_feature_plays"
+msgid "Feature ID — Plays (Reels)"
+msgstr "ID характеристики — Воспроизведения (Plays, Reels)"
+
+msgctxt "SettingsTooltips::rlsv_autopost::ig_feature_plays"
+msgid "Reels: number of times the reel started (incl. autoplay and replays)."
+msgstr "Reels: количество запусков ролика (включая автовоспроизведение и повторы)."
+
+msgctxt "SettingsOptions::rlsv_autopost::ig_feature_total_interactions"
+msgid "Feature ID — Total Interactions (Reels)"
+msgstr "ID характеристики — Взаимодействия (Total Interactions, Reels)"
+
+msgctxt "SettingsTooltips::rlsv_autopost::ig_feature_total_interactions"
+msgid "Reels: total actions on the reel (likes, comments, saves, shares)."
+msgstr "Reels: общее число действий с роликом (лайки, комментарии, сохранения, репосты)."
+
+msgctxt "SettingsOptions::rlsv_autopost::ig_feature_likes"
+msgid "Feature ID — Likes"
+msgstr "ID характеристики — Лайки (Likes)"
+
+msgctxt "SettingsTooltips::rlsv_autopost::ig_feature_likes"
+msgid "Number of likes."
+msgstr "Количество лайков."
+
+msgctxt "SettingsOptions::rlsv_autopost::ig_feature_comments"
+msgid "Feature ID — Comments"
+msgstr "ID характеристики — Комментарии (Comments)"
+
+msgctxt "SettingsTooltips::rlsv_autopost::ig_feature_comments"
+msgid "Number of comments."
+msgstr "Количество комментариев."
+
+msgctxt "SettingsOptions::rlsv_autopost::ig_feature_saves"
+msgid "Feature ID — Saves (Reels)"
+msgstr "ID характеристики — Сохранения (Saves, Reels)"
+
+msgctxt "SettingsTooltips::rlsv_autopost::ig_feature_saves"
+msgid "Reels: number of saves."
+msgstr "Reels: количество сохранений ролика в закладки."
+
+msgctxt "SettingsOptions::rlsv_autopost::ig_feature_shares"
+msgid "Feature ID — Shares"
+msgstr "ID характеристики — Репосты (Shares)"
+
+msgctxt "SettingsTooltips::rlsv_autopost::ig_feature_shares"
+msgid "Number of shares."
+msgstr "Количество репостов."
+
+msgctxt "SettingsOptions::rlsv_autopost::ig_feature_replies"
+msgid "Feature ID — Replies (Stories)"
+msgstr "ID характеристики — Ответы (Replies, Stories)"
+
+msgctxt "SettingsTooltips::rlsv_autopost::ig_feature_replies"
+msgid "Stories: replies sent to Direct via the story reply field."
+msgstr "Stories: количество сообщений, отправленных в Direct через поле ответа в истории."
+
+msgctxt "SettingsOptions::rlsv_autopost::ig_feature_taps_forward"
+msgid "Feature ID — Taps Forward (Stories)"
+msgstr "ID характеристики — Касания «Вперёд» (Taps Forward, Stories)"
+
+msgctxt "SettingsTooltips::rlsv_autopost::ig_feature_taps_forward"
+msgid "Stories: taps to go to the next story."
+msgstr "Stories: касания экрана для перехода к следующей истории."
+
+msgctxt "SettingsOptions::rlsv_autopost::ig_feature_taps_back"
+msgid "Feature ID — Taps Back (Stories)"
+msgstr "ID характеристики — Касания «Назад» (Taps Back, Stories)"
+
+msgctxt "SettingsTooltips::rlsv_autopost::ig_feature_taps_back"
+msgid "Stories: taps to go back to the previous story."
+msgstr "Stories: касания для возврата к предыдущей истории."
+
+msgctxt "SettingsOptions::rlsv_autopost::ig_feature_exits"
+msgid "Feature ID — Exits (Stories)"
+msgstr "ID характеристики — Выходы (Exits, Stories)"
+
+msgctxt "SettingsTooltips::rlsv_autopost::ig_feature_exits"
+msgid "Stories: number of exits from the story viewer on your post."
+msgstr "Stories: количество выходов из просмотра историй с вашей публикации."
+
+msgctxt "Languages::rlsv_autopost.ig_bindings"
+msgid "Metric-to-feature bindings"
+msgstr "Привязка метрик к характеристикам"
+
+msgctxt "Languages::rlsv_autopost.ig_product"
+msgid "Product"
+msgstr "Товар"
+
+msgctxt "Languages::rlsv_autopost.ig_bound_feature"
+msgid "Written to the product feature with this ID"
+msgstr "Записывается в характеристику товара с этим ID"
+
+msgctxt "Languages::rlsv_autopost.ig_sec_basic"
+msgid "Basic metrics (Posts)"
+msgstr "Базовые метрики (Посты)"
+
+msgctxt "Languages::rlsv_autopost.ig_sec_stories"
+msgid "Stories (24h)"
+msgstr "Истории (за 24ч)"
+
+msgctxt "Languages::rlsv_autopost.ig_recent"
+msgid "Recent posts"
+msgstr "Последние публикации"
+
+msgctxt "Languages::rlsv_autopost.stat_success"
+msgid "Success rate"
+msgstr "% успешных"
+
+msgctxt "Languages::rlsv_autopost.chart_status"
+msgid "Statuses"
+msgstr "Статусы"
+
+msgctxt "Languages::rlsv_autopost.chart_platforms"
+msgid "By platform"
+msgstr "По площадкам"
+
+msgctxt "Languages::rlsv_autopost.ig_no_features"
+msgid "No product-feature IDs are set for the metrics. Set them in the module settings (Instagram tab):"
+msgstr "Не заданы ID характеристик для метрик. Укажите их в настройках модуля (вкладка Instagram):"
+
+msgctxt "Languages::rlsv_autopost.ig_no_products"
+msgid "No products are linked to your account (directly or via a category)."
+msgstr "К вашему аккаунту не привязано ни одного товара (напрямую или через категорию)."
+
+msgctxt "Languages::rlsv_autopost.ig_features_note"
+msgid "Numbers are read from the features of products linked to you; the feature IDs are set in the module settings."
+msgstr "Числа берутся из характеристик привязанных к вам товаров; ID характеристик заданы в настройках модуля."
+
+msgctxt "Languages::rlsv_autopost.pub_tab_content"
+msgid "Content"
+msgstr "Контент"
+
+msgctxt "Languages::rlsv_autopost.pub_tab_type"
+msgid "Publication type"
+msgstr "Тип публикации"
+
+msgctxt "Languages::rlsv_autopost.pub_media"
+msgid "Photo and video (Media)"
+msgstr "Фото и видео (Media)"
+
+msgctxt "Languages::rlsv_autopost.pub_carousel"
+msgid "Carousel (Carousel Album)"
+msgstr "Карусель (Carousel Album)"
+
+msgctxt "Languages::rlsv_autopost.pub_stories"
+msgid "Stories"
+msgstr "Истории (Stories)"
+
+msgctxt "Languages::rlsv_autopost.pub_type_hint"
+msgid "Choose how this product should be published."
+msgstr "Выберите, в каком виде публиковать этот товар."
