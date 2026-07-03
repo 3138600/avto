@@ -556,7 +556,7 @@ function fn_rlsv_autopost_get_publishers_for_product($product_id)
  */
 function fn_rlsv_autopost_get_enabled_platforms()
 {
-    $all = array('vk', 'instagram', 'telegram', 'ok', 'pinterest', 'max', 'youtube', 'rutube');
+    $all = array('vk', 'instagram', 'telegram', 'ok', 'pinterest', 'max', 'youtube', 'rutube', 'yandex_direct');
 
     $enabled = Registry::get('addons.rlsv_autopost.enabled_platforms');
     if (empty($enabled) || !is_array($enabled)) {
