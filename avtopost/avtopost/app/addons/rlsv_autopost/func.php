@@ -2560,16 +2560,23 @@ function fn_rlsv_autopost_read_product_feature_values($product_id, array $featur
  * feature_map/dash/media), поэтому шаблон дашборда не меняется.
  */
 
+
 /**
  * @return array [metric_key => feature_id(int)]
  */
 function fn_rlsv_autopost_get_platform_feature_map($prefix)
 {
-    $metrics = array(
-        'impressions', 'reach', 'engagement', 'saved', 'video_views',
-        'plays', 'total_interactions', 'likes', 'comments', 'saves', 'shares',
-        'replies', 'taps_forward', 'taps_back', 'exits',
-    );
+    if ($prefix === 'yd') {
+        $metrics = array(
+            'impressions', 'clicks', 'cost', 'conversions', 'revenue', 'roi', 'cpa'
+        );
+    } else {
+        $metrics = array(
+            'impressions', 'reach', 'engagement', 'saved', 'video_views',
+            'plays', 'total_interactions', 'likes', 'comments', 'saves', 'shares',
+            'replies', 'taps_forward', 'taps_back', 'exits',
+        );
+    }
 
     $map = array();
     foreach ($metrics as $m) {
@@ -2582,12 +2589,29 @@ function fn_rlsv_autopost_get_platform_feature_map($prefix)
     return $map;
 }
 
+function fn_rlsv_autopost_get_platform_metric_labels($prefix)
+{
+    if ($prefix === 'yd') {
+        return array(
+            'impressions' => 'Impressions',
+            'clicks'      => 'Clicks',
+            'cost'        => 'Cost',
+            'conversions' => 'Conversions',
+            'revenue'     => 'Revenue',
+            'roi'         => 'ROI',
+            'cpa'         => 'CPA',
+        );
+    }
+    return fn_rlsv_autopost_ig_metric_labels();
+}
+
+
 /**
  * Чтение аналитики из характеристик товаров пользователя для произвольной платформы.
  */
 function fn_rlsv_autopost_get_platform_feature_analytics($user_id, $prefix)
 {
-    $labels = fn_rlsv_autopost_ig_metric_labels();
+    $labels = fn_rlsv_autopost_get_platform_metric_labels($prefix);
     $fmap   = fn_rlsv_autopost_get_platform_feature_map($prefix);
 
     $result = array(

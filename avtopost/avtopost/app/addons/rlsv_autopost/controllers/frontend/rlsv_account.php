@@ -120,7 +120,7 @@ if ($mode == 'instagram') {
     return array(CONTROLLER_STATUS_OK);
 }
 
-if (in_array($mode, array('vk', 'telegram', 'ok', 'pinterest', 'max', 'youtube', 'rutube'))) {
+if (in_array($mode, array('vk', 'telegram', 'ok', 'pinterest', 'max', 'youtube', 'rutube', 'yandex_direct'))) {
     $prefix_map = array(
         'vk'       => 'vk',
         'telegram' => 'tg',
@@ -129,6 +129,7 @@ if (in_array($mode, array('vk', 'telegram', 'ok', 'pinterest', 'max', 'youtube',
         'max'      => 'max',
         'youtube'  => 'youtube',
         'rutube'   => 'rutube',
+        'yandex_direct' => 'yd',
     );
     $prefix = $prefix_map[$mode];
     Tygh::$app['view']->assign('rlsv_' . $prefix, fn_rlsv_autopost_get_platform_feature_analytics($user_id, $prefix));

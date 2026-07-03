@@ -157,6 +157,7 @@
                             <item id="max"/>
                             <item id="youtube"/>
                             <item id="rutube"/>
+                            <item id="yandex_direct"/>
                         </variants>
                         <default_value>vk,telegram,ok</default_value>
                     </item>
@@ -733,6 +734,46 @@
                         <default_value>Y</default_value>
                     </item>
                     <item id="rutube_insights_limit">
+                        <type>input</type>
+                        <default_value>15</default_value>
+                    </item>
+                </items>
+            </section>
+            <section id="yandex_direct">
+                <items>
+                    <item id="yd_feature_impressions">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="yd_feature_clicks">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="yd_feature_cost">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="yd_feature_conversions">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="yd_feature_revenue">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="yd_feature_roi">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="yd_feature_cpa">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="yd_fetch_insights">
+                        <type>checkbox</type>
+                        <default_value>Y</default_value>
+                    </item>
+                    <item id="yd_insights_limit">
                         <type>input</type>
                         <default_value>15</default_value>
                     </item>

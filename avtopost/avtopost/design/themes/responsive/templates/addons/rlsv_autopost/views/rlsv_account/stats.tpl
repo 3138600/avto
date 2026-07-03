@@ -52,6 +52,7 @@
         <a class="ty-btn ty-btn__secondary" href="{"rlsv_account.max"|fn_url}">{__("rlsv_autopost.max_analytics")}</a>
         <a class="ty-btn ty-btn__secondary" href="{"rlsv_account.youtube"|fn_url}">{__("rlsv_autopost.youtube_analytics")}</a>
         <a class="ty-btn ty-btn__secondary" href="{"rlsv_account.rutube"|fn_url}">{__("rlsv_autopost.rutube_analytics")}</a>
+        <a class="ty-btn ty-btn__secondary" href="{"rlsv_account.yandex_direct"|fn_url}">{__("rlsv_autopost.yandex_direct_analytics")}</a>
     </p>
     <ul class="rlsv-tabs">
         <li><a href="#" data-rlsv-tab="overview">{__("rlsv_autopost.tab_overview")}</a></li>

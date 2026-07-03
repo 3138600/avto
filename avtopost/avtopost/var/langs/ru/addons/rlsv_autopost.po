@@ -1190,3 +1190,47 @@ msgstr "Аналитика YouTube"
 msgctxt "Languages::rlsv_autopost.rutube_analytics"
 msgid "Rutube analytics"
 msgstr "Аналитика Rutube"
+
+msgctxt "SettingsSections::rlsv_autopost::yandex_direct"
+msgid "Yandex Direct"
+msgstr "Яндекс Директ"
+
+msgctxt "SettingsOptions::rlsv_autopost::yd_feature_impressions"
+msgid "Feature ID — Impressions"
+msgstr "ID характеристики — Показы (Impressions)"
+
+msgctxt "SettingsOptions::rlsv_autopost::yd_feature_clicks"
+msgid "Feature ID — Clicks"
+msgstr "ID характеристики — Клики (Clicks)"
+
+msgctxt "SettingsOptions::rlsv_autopost::yd_feature_cost"
+msgid "Feature ID — Cost"
+msgstr "ID характеристики — Затраты (Cost)"
+
+msgctxt "SettingsOptions::rlsv_autopost::yd_feature_conversions"
+msgid "Feature ID — Conversions"
+msgstr "ID характеристики — Конверсии (Conversions)"
+
+msgctxt "SettingsOptions::rlsv_autopost::yd_feature_revenue"
+msgid "Feature ID — Revenue"
+msgstr "ID характеристики — Доход (Revenue)"
+
+msgctxt "SettingsOptions::rlsv_autopost::yd_feature_roi"
+msgid "Feature ID — ROI"
+msgstr "ID характеристики — ROI"
+
+msgctxt "SettingsOptions::rlsv_autopost::yd_feature_cpa"
+msgid "Feature ID — CPA"
+msgstr "ID характеристики — CPA (Стоимость конверсии)"
+
+msgctxt "SettingsOptions::rlsv_autopost::yd_fetch_insights"
+msgid "Collect analytics (insights)"
+msgstr "Собирать аналитику (insights)"
+
+msgctxt "SettingsOptions::rlsv_autopost::yd_insights_limit"
+msgid "Insights limit"
+msgstr "Лимит записей для аналитики"
+
+msgctxt "Languages::rlsv_autopost.yandex_direct_analytics"
+msgid "Yandex Direct analytics"
+msgstr "Аналитика Яндекс Директ"
