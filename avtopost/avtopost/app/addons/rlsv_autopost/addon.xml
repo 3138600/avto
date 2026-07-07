@@ -234,6 +234,510 @@
                     </item>
                 </items>
             </section>
+            <section id="vk">
+                <items>
+                    <item id="vk_feature_impressions">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="vk_feature_reach">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="vk_feature_engagement">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="vk_feature_saved">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="vk_feature_video_views">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="vk_feature_plays">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="vk_feature_total_interactions">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="vk_feature_likes">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="vk_feature_comments">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="vk_feature_saves">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="vk_feature_shares">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="vk_feature_replies">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="vk_feature_taps_forward">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="vk_feature_taps_back">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="vk_feature_exits">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="vk_fetch_insights">
+                        <type>checkbox</type>
+                        <default_value>Y</default_value>
+                    </item>
+                    <item id="vk_insights_limit">
+                        <type>input</type>
+                        <default_value>15</default_value>
+                    </item>
+                </items>
+            </section>
+            <section id="telegram">
+                <items>
+                    <item id="tg_feature_impressions">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="tg_feature_reach">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="tg_feature_engagement">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="tg_feature_saved">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="tg_feature_video_views">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="tg_feature_plays">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="tg_feature_total_interactions">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="tg_feature_likes">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="tg_feature_comments">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="tg_feature_saves">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="tg_feature_shares">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="tg_feature_replies">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="tg_feature_taps_forward">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="tg_feature_taps_back">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="tg_feature_exits">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="tg_fetch_insights">
+                        <type>checkbox</type>
+                        <default_value>Y</default_value>
+                    </item>
+                    <item id="tg_insights_limit">
+                        <type>input</type>
+                        <default_value>15</default_value>
+                    </item>
+                </items>
+            </section>
+            <section id="ok">
+                <items>
+                    <item id="ok_feature_impressions">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ok_feature_reach">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ok_feature_engagement">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ok_feature_saved">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ok_feature_video_views">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ok_feature_plays">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ok_feature_total_interactions">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ok_feature_likes">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ok_feature_comments">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ok_feature_saves">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ok_feature_shares">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ok_feature_replies">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ok_feature_taps_forward">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ok_feature_taps_back">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ok_feature_exits">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="ok_fetch_insights">
+                        <type>checkbox</type>
+                        <default_value>Y</default_value>
+                    </item>
+                    <item id="ok_insights_limit">
+                        <type>input</type>
+                        <default_value>15</default_value>
+                    </item>
+                </items>
+            </section>
+            <section id="pinterest">
+                <items>
+                    <item id="pinterest_feature_impressions">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="pinterest_feature_reach">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="pinterest_feature_engagement">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="pinterest_feature_saved">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="pinterest_feature_video_views">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="pinterest_feature_plays">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="pinterest_feature_total_interactions">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="pinterest_feature_likes">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="pinterest_feature_comments">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="pinterest_feature_saves">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="pinterest_feature_shares">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="pinterest_feature_replies">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="pinterest_feature_taps_forward">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="pinterest_feature_taps_back">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="pinterest_feature_exits">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="pinterest_fetch_insights">
+                        <type>checkbox</type>
+                        <default_value>Y</default_value>
+                    </item>
+                    <item id="pinterest_insights_limit">
+                        <type>input</type>
+                        <default_value>15</default_value>
+                    </item>
+                </items>
+            </section>
+            <section id="max">
+                <items>
+                    <item id="max_feature_impressions">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="max_feature_reach">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="max_feature_engagement">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="max_feature_saved">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="max_feature_video_views">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="max_feature_plays">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="max_feature_total_interactions">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="max_feature_likes">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="max_feature_comments">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="max_feature_saves">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="max_feature_shares">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="max_feature_replies">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="max_feature_taps_forward">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="max_feature_taps_back">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="max_feature_exits">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="max_fetch_insights">
+                        <type>checkbox</type>
+                        <default_value>Y</default_value>
+                    </item>
+                    <item id="max_insights_limit">
+                        <type>input</type>
+                        <default_value>15</default_value>
+                    </item>
+                </items>
+            </section>
+            <section id="youtube">
+                <items>
+                    <item id="yt_feature_impressions">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="yt_feature_reach">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="yt_feature_engagement">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="yt_feature_saved">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="yt_feature_video_views">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="yt_feature_plays">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="yt_feature_total_interactions">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="yt_feature_likes">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="yt_feature_comments">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="yt_feature_saves">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="yt_feature_shares">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="yt_feature_replies">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="yt_feature_taps_forward">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="yt_feature_taps_back">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="yt_feature_exits">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="yt_fetch_insights">
+                        <type>checkbox</type>
+                        <default_value>Y</default_value>
+                    </item>
+                    <item id="yt_insights_limit">
+                        <type>input</type>
+                        <default_value>15</default_value>
+                    </item>
+                </items>
+            </section>
+            <section id="rutube">
+                <items>
+                    <item id="rutube_feature_impressions">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="rutube_feature_reach">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="rutube_feature_engagement">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="rutube_feature_saved">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="rutube_feature_video_views">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="rutube_feature_plays">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="rutube_feature_total_interactions">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="rutube_feature_likes">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="rutube_feature_comments">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="rutube_feature_saves">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="rutube_feature_shares">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="rutube_feature_replies">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="rutube_feature_taps_forward">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="rutube_feature_taps_back">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="rutube_feature_exits">
+                        <type>input</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="rutube_fetch_insights">
+                        <type>checkbox</type>
+                        <default_value>Y</default_value>
+                    </item>
+                    <item id="rutube_insights_limit">
+                        <type>input</type>
+                        <default_value>15</default_value>
+                    </item>
+                </items>
+            </section>
         </sections>
     </settings>
 </addon>
