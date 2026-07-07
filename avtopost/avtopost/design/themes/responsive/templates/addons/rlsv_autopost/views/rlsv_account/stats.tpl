@@ -42,7 +42,18 @@
     </style>
 
     {* ----- Навигация по вкладкам ----- *}
-    <p class="ty-mb-s"><a class="ty-btn ty-btn__secondary" href="{"rlsv_account.instagram"|fn_url}">{__("rlsv_autopost.ig_analytics")}</a></p>
+
+    <p class="ty-mb-s">
+        <a class="ty-btn ty-btn__secondary" href="{"rlsv_account.instagram"|fn_url}">{__("rlsv_autopost.ig_analytics")}</a>
+        <a class="ty-btn ty-btn__secondary" href="{"rlsv_account.vk"|fn_url}">{__("rlsv_autopost.vk_analytics")}</a>
+        <a class="ty-btn ty-btn__secondary" href="{"rlsv_account.telegram"|fn_url}">{__("rlsv_autopost.telegram_analytics")}</a>
+        <a class="ty-btn ty-btn__secondary" href="{"rlsv_account.ok"|fn_url}">{__("rlsv_autopost.ok_analytics")}</a>
+        <a class="ty-btn ty-btn__secondary" href="{"rlsv_account.pinterest"|fn_url}">{__("rlsv_autopost.pinterest_analytics")}</a>
+        <a class="ty-btn ty-btn__secondary" href="{"rlsv_account.max"|fn_url}">{__("rlsv_autopost.max_analytics")}</a>
+        <a class="ty-btn ty-btn__secondary" href="{"rlsv_account.youtube"|fn_url}">{__("rlsv_autopost.youtube_analytics")}</a>
+        <a class="ty-btn ty-btn__secondary" href="{"rlsv_account.rutube"|fn_url}">{__("rlsv_autopost.rutube_analytics")}</a>
+        <a class="ty-btn ty-btn__secondary" href="{"rlsv_account.yandex_direct"|fn_url}">{__("rlsv_autopost.yandex_direct_analytics")}</a>
+    </p>
     <ul class="rlsv-tabs">
         <li><a href="#" data-rlsv-tab="overview">{__("rlsv_autopost.tab_overview")}</a></li>
         {foreach from=$rlsv_platforms item="pf"}
