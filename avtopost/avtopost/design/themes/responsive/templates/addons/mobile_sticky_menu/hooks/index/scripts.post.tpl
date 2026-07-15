@@ -122,7 +122,7 @@
 
 <div class="mobile-sticky-menu-wrapper" style="--sm-timeOut: none;">
   <menu class="menu" id="sm-menu">
-    <a href="{$addons.mobile_sticky_menu.link_1}" class="menu__item active" style="--sm-bgColorItem: #ff8c00;">
+    <a href="{$addons.mobile_sticky_menu.link_1|escape:"html"}" class="menu__item active" style="--sm-bgColorItem: #ff8c00;">
       <svg class="icon" viewBox="0 0 24 24">
         <path d="M3.8,6.6h16.4"></path>
         <path d="M20.2,12.1H3.8"></path>
@@ -130,7 +130,7 @@
       </svg>
     </a>
 
-    <a href="{$addons.mobile_sticky_menu.link_2}" class="menu__item" style="--sm-bgColorItem: #f54888;">
+    <a href="{$addons.mobile_sticky_menu.link_2|escape:"html"}" class="menu__item" style="--sm-bgColorItem: #f54888;">
       <svg class="icon" viewBox="0 0 24 24">
         <path d="M6.7,4.8h10.7c0.3,0,0.6,0.2,0.7,0.5l2.8,7.3c0,0.1,0,0.2,0,0.3v5.6c0,0.4-0.4,0.8-0.8,0.8H3.8
         C3.4,19.3,3,19,3,18.5v-5.6c0-0.1,0-0.2,0.1-0.3L6,5.3C6.1,5,6.4,4.8,6.7,4.8z"></path>
@@ -138,7 +138,7 @@
       </svg>
     </a>
 
-    <a href="{$addons.mobile_sticky_menu.link_3}" class="menu__item" style="--sm-bgColorItem: #4343f5;">
+    <a href="{$addons.mobile_sticky_menu.link_3|escape:"html"}" class="menu__item" style="--sm-bgColorItem: #4343f5;">
       <svg class="icon" viewBox="0 0 24 24">
       <path d="M3.4,11.9l8.8,4.4l8.4-4.4"></path>
       <path d="M3.4,16.2l8.8,4.5l8.4-4.5"></path>
@@ -146,7 +146,7 @@
     </svg>
     </a>
 
-    <a href="{$addons.mobile_sticky_menu.link_4}" class="menu__item" style="--sm-bgColorItem: #e0b115;">
+    <a href="{$addons.mobile_sticky_menu.link_4|escape:"html"}" class="menu__item" style="--sm-bgColorItem: #e0b115;">
       <svg class="icon" viewBox="0 0 24 24">
         <path d="M5.1,3.9h13.9c0.6,0,1.2,0.5,1.2,1.2v13.9c0,0.6-0.5,1.2-1.2,1.2H5.1c-0.6,0-1.2-0.5-1.2-1.2V5.1
           C3.9,4.4,4.4,3.9,5.1,3.9z"></path>
@@ -155,7 +155,7 @@
     </svg>
     </a>
 
-    <a href="{$addons.mobile_sticky_menu.link_5}" class="menu__item" style="--sm-bgColorItem:#65ddb7;">
+    <a href="{$addons.mobile_sticky_menu.link_5|escape:"html"}" class="menu__item" style="--sm-bgColorItem:#65ddb7;">
       <svg class="icon" viewBox="0 0 24 24">
         <path d="M5.1,3.9h13.9c0.6,0,1.2,0.5,1.2,1.2v13.9c0,0.6-0.5,1.2-1.2,1.2H5.1c-0.6,0-1.2-0.5-1.2-1.2V5.1
           C3.9,4.4,4.4,3.9,5.1,3.9z"></path>
@@ -179,6 +179,7 @@
 </div>
 
 <script>
+{literal}
 (function() {
     "use strict";
 
@@ -199,7 +200,7 @@
             if (offsetActiveItem.width === 0) return;
 
             const left = Math.floor(offsetActiveItem.left - menu.getBoundingClientRect().left - (menuBorder.offsetWidth - offsetActiveItem.width) / 2) + "px";
-            menuBorder.style.transform = `translate3d(${left}, 0 , 0)`;
+            menuBorder.style.transform = 'translate3d(' + left + ', 0 , 0)';
         }
 
         // Find the active item based on current URL
@@ -251,4 +252,5 @@
         });
     });
 })();
+{/literal}
 </script>
