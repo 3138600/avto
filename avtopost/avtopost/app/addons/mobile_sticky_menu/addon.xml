@@ -6,7 +6,8 @@
     <position>0</position>
     <status>active</status>
     <default_language>en</default_language>
-    <settings>
+    <auto_install>MULTIVENDOR,ULTIMATE</auto_install>
+    <settings layout="separate">
         <sections>
             <section id="general">
                 <items>

@@ -1,4 +1,5 @@
 <style>
+{literal}
 /* Scoped styles for the mobile sticky menu */
 :root {
     --sm-bgColorMenu: #1d1d27;
@@ -118,6 +119,7 @@
         display: none !important;
     }
 }
+{/literal}
 </style>
 
 <div class="mobile-sticky-menu-wrapper" style="--sm-timeOut: none;">
