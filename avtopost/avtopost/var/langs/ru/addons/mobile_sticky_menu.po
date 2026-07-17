@@ -1,0 +1,34 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cs-cart\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language-Team: Russian\n"
+"Language: ru_RU\n"
+
+msgctxt "Addons::name::mobile_sticky_menu"
+msgid "Mobile Sticky Menu"
+msgstr "Мобильное липкое меню"
+
+msgctxt "Addons::description::mobile_sticky_menu"
+msgid "Adds a sticky menu to the bottom of the screen on mobile devices."
+msgstr "Добавляет липкое меню внизу экрана на мобильных устройствах."
+
+msgctxt "SettingsOptions::link_1"
+msgid "Link 1 URL"
+msgstr "Ссылка 1 URL"
+
+msgctxt "SettingsOptions::link_2"
+msgid "Link 2 URL"
+msgstr "Ссылка 2 URL"
+
+msgctxt "SettingsOptions::link_3"
+msgid "Link 3 URL"
+msgstr "Ссылка 3 URL"
+
+msgctxt "SettingsOptions::link_4"
+msgid "Link 4 URL"
+msgstr "Ссылка 4 URL"
+
+msgctxt "SettingsOptions::link_5"
+msgid "Link 5 URL"
+msgstr "Ссылка 5 URL"
